@@ -11,15 +11,29 @@
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">
-                    10
+                Selamat Datang Kembali,
+                <span class="text-danger">
+                    {{ Auth::user()->name }}
                 </span>
+                <i class="fas fa-user mr-1"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">
-                    10 Notifications
-                </span>
+                <p onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout nav-icon"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2">
+                        </path>
+                        <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                    </svg>
+                    <a class="btn">Sign Out
+                    </a>
+                </p>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+                </p>
                 <div class="dropdown-divider"></div>
             </div>
         </li>
