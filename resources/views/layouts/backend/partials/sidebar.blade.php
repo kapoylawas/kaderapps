@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.bank') }}" class="nav-link {{ active('admin.bank') }} ">
                         <i class="fa fa-bank"></i>
                         <p>
                             Data Bank
@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.puskesmas') }}" class="nav-link {{ active('admin.puskesmas') }} ">
                         <i class="fa fa-hospital-o"></i>
                         <p>
                             Data Puskesmas

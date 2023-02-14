@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class MasterdataController extends Controller
+class JabatanController extends Controller
 {
   /**
    * Handle the incoming request.
@@ -18,5 +18,14 @@ class MasterdataController extends Controller
   public function __invoke()
   {
     return view('admin.jabatan');
+  }
+  // public function index()
+  // {
+  //   return view('admin.jabatan');
+  // }
+
+  public function createJabatan()
+  {
+    return view('admin.inputJabatan');
   }
 }
