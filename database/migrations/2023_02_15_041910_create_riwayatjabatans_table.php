@@ -13,26 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('biodatas', function (Blueprint $table) {
+        Schema::create('riwayatjabatans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_sk');
+            $table->unsignedBigInteger('id_jabatan');
+            $table->string('nik');
             $table->unsignedBigInteger('id_kelurahan');
-            $table->unsignedBigInteger('id_kota');
             $table->unsignedBigInteger('id_kecamatan');
-            $table->unsignedBigInteger('id_bank');
-            $table->string('name');
-            $table->string('alamat');
-            $table->date('tglLahir');
-            $table->string('norek');
-            $table->string('nohp');
-            $table->string('filektp');
-            $table->string('filebukutabungan');
-            $table->string('foto');
+            $table->string('tahun');
             $table->timestamps();
 
-            $table->foreign('id_kota')->references('id')->on('kotas');
+            $table->foreign('id_sk')->references('id')->on('sks');
+            $table->foreign('id_jabatan')->references('id')->on('jabatans');
             $table->foreign('id_kelurahan')->references('id')->on('kelurahans');
             $table->foreign('id_kecamatan')->references('id')->on('kecamatans');
-            $table->foreign('id_bank')->references('id')->on('banks');
         });
     }
 
@@ -43,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('biodatas');
+        Schema::dropIfExists('riwayatjabatans');
     }
 };

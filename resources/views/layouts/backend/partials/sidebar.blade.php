@@ -68,6 +68,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link">
+                        <i class="fas fa-address-book"></i>
+                        <p>
+                            User
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">Data SK</li>
                 <li class="nav-item">
                     <a href="" class="nav-link">
@@ -130,7 +138,7 @@
                         </p>
                     </a>
                 </li>
-                @role('author')
+                @role('admin|author')
                 <li class="nav-header">MASTER DATA</li>
 
                 @endcan

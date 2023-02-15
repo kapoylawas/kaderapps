@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PuskesmasController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::get('/bank', BankController::class)->name('bank');
 
     Route::get('/puskesmas', PuskesmasController::class)->name('puskesmas');
+
+    Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
 });
