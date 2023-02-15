@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\PuskesmasController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 
