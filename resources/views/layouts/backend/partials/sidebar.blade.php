@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-header">MASTER DATA</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.jabatan') }}" class="nav-link {{ active('admin.jabatan') }} ">
+                    <a href="{{ route('admin.jabatan.index') }}" class="nav-link {{ active('admin.jabatan.index') }} ">
                         <i class="fas fa-sitemap"></i>
                         <p>
                             Data Jabatan
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.bank') }}" class="nav-link {{ active('admin.bank') }} ">
+                    <a href="" class="nav-link ">
                         <i class="fa fa-bank"></i>
                         <p>
                             Data Bank
@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.puskesmas') }}" class="nav-link {{ active('admin.puskesmas') }} ">
+                    <a href="" class="nav-link ">
                         <i class="fa fa-hospital-o"></i>
                         <p>
                             Data Puskesmas
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.user.index') }}" class="nav-link">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link {{ active('admin.user.index') }}">
                         <i class="fas fa-address-book"></i>
                         <p>
                             User

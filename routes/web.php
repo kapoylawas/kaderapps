@@ -28,12 +28,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::get('/jabatan', JabatanController::class)->name('jabatan');
-    Route::get('/add-jabatan', JabatanController::class, 'createJabatan')->name('add-jabatan');
-
-    Route::get('/bank', BankController::class)->name('bank');
-
-    Route::get('/puskesmas', PuskesmasController::class)->name('puskesmas');
-
     Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
+
+    Route::resource('/jabatan', JabatanController::class)->only('index', 'update', 'destroy');
 });
