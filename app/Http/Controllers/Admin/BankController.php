@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BankRequest;
+use App\Models\Bank;
 use Illuminate\Http\Request;
 
 class BankController extends Controller
@@ -14,7 +16,9 @@ class BankController extends Controller
      */
     public function index()
     {
-        return view('admin.bank.index');
+        $banks = Bank::latest()->paginate(10);
+        //passing data $bank ke view index
+        return view('admin.bank.index', compact('banks'));
     }
 
     /**
@@ -24,7 +28,7 @@ class BankController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.bank.create');
     }
 
     /**
@@ -35,7 +39,14 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // masukan data baru category kedalam database.
+        Bank::create([
+            'name' => $request->name,
+            'biayatf' => $request->biayatf
+        ]);
+
+        // kembali kehalaman admin/category/index dengan membawa toastr.
+        return redirect(route('admin.bank.index'))->with('toast_success', 'Bank Created');
     }
 
     /**
@@ -57,7 +68,9 @@ class BankController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bank = Bank::find($id);
+        // passing varibel $bank kedalam view.
+        return view('admin.bank.edit', compact('bank'));
     }
 
     /**
@@ -67,9 +80,15 @@ class BankController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Bank $bank)
     {
-        //
+        $bank->update([
+            'name' => $request->name,
+            'biayatf' => $request->biayatf
+        ]);
+
+        // kembali kehalaman admin/bank/index dengan membawa toastr.
+        return redirect(route('admin.bank.index'))->with('toast_success', 'Bank Updated');
     }
 
     /**
@@ -78,8 +97,12 @@ class BankController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Bank $bank)
     {
-        //
+        // hapus data jabatan berdasarkan id.
+        $bank->delete();
+
+        // kembali kehalaman sebelumnya dengan membawa toastr.
+        return back()->with('toast_success', 'Jabatan Deleted');
     }
 }

@@ -9,7 +9,7 @@
             <x-card-form title="EDIT JABATAN" url="{{ route('admin.jabatan.index') }}" titleBtn="Update Jabatan">
                 <x-input title="Nama" type="text" name="name" placeholder="Enter jabatan title"
                     :value="$jabatan->name" />
-                <x-input title="Kelmpok kelompokjabatan" type="text" name="kelompokjabatan" placeholder="Enter Kelompok Jabatan"
+                <x-input title="Kelmpok Jabatan" type="text" name="kelompokjabatan" placeholder="Enter Kelompok Jabatan"
                     :value="$jabatan->kelompokjabatan" />
                 <x-input title="Tarif Gaji" type="text" name="tarifgaji" placeholder="Enter Tarif Gaji"
                     :value="$jabatan->tarifgaji" />

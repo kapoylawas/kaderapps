@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Request\PuskesmasRequest;
+use App\Models\Puskesmas;
 use Illuminate\Http\Request;
 
 class PuskesmasController extends Controller
@@ -14,7 +16,9 @@ class PuskesmasController extends Controller
      */
     public function index()
     {
-        return view('admin.puskesmas.index');
+        $puskesmas = Puskesmas::latest()->paginate(10);
+        //passing data $puskesmas ke view index
+        return view('admin.puskesmas.index', compact('puskesmas'));
     }
 
     /**
@@ -24,7 +28,7 @@ class PuskesmasController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.puskesmas.create');
     }
 
     /**
@@ -35,7 +39,16 @@ class PuskesmasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // masukan data baru category kedalam database.
+        Puskesmas::create([
+            'name' => $request->name,
+            'alamat' => $request->alamat,
+            'email' => $request->email,
+            'tlp' => $request->notelp,
+        ]);
+
+        // kembali kehalaman admin/category/index dengan membawa toastr.
+        return redirect(route('admin.puskesmas.index'))->with('toast_success', 'Puskesmas Created');
     }
 
     /**
@@ -57,7 +70,9 @@ class PuskesmasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $puskesmas = Puskesmas::find($id);
+        // passing varibel $bank kedalam view.
+        return view('admin.puskesmas.edit', compact('puskesmas'));
     }
 
     /**
@@ -67,9 +82,18 @@ class PuskesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Puskesmas $puskesmas)
     {
-        //
+        
+        $puskesmas->update([
+            'name' => $request->name,
+            'alamat' => $request->alamat,
+            'email' => $request->email,
+            'tlp' => $request->notelp
+        ]);
+
+        // kembali kehalaman admin/bank/index dengan membawa toastr.
+        return redirect(route('admin.puskesmas.index'))->with('toast_success', 'Puskesmas Updated');
     }
 
     /**
@@ -78,8 +102,12 @@ class PuskesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Puskesmas $puskesmas)
     {
-        //
+        // hapus data jabatan berdasarkan id.
+        $puskesmas->delete();
+
+        // kembali kehalaman sebelumnya dengan membawa toastr.
+        return back()->with('toast_success', 'Puskesmas Deleted');
     }
 }

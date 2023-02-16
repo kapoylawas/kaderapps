@@ -10,7 +10,7 @@
                 <div class="col">
                     <div class="card-body">
                         <div class="col mb-5">
-                            <a href="" class="btn btn-success btn-sm float-right">
+                            <a href="{{ route('admin.bank.create') }}" class="btn btn-success btn-sm float-right">
                                 <span><i class="fa fa-plus"></i></span>
                                 Tambah
                             </a>
@@ -25,35 +25,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($banks as $i => $bank)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Bank 1</td>
-                                    <td>Rp. 5.000</td>
+                                    <td>{{ ++$i }}</td>
+                                    <td>{{ $bank->name }}</td>
+                                    <td>{{ $bank->biayatf }}</td>
                                     <td>
-                                        <form action="" method="POST">
-                                            @csrf
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <div class="col-1">
-                                                        <button type="submit" href=""
-                                                            class="btn btn-sm btn-primary ms-auto" value="">
-                                                            <i class="fa fa-eye"></i></span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-1">
-                                                        <x-button-edit url=""></x-button-edit>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-1">
-                                                        <x-button-delete url="" id=""></x-button-delete>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        <x-button-edit :url="route('admin.bank.edit', $bank->id)" />
+                                        <x-button-delete :id="$bank->id"
+                                            :url="route('admin.bank.destroy', $bank->id)" />
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

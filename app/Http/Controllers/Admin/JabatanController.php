@@ -41,16 +41,16 @@ class JabatanController extends Controller
      */
     public function store(JabatanRequest $request)
     {
- 
-         // masukan data baru category kedalam database.
-         Jabatan::create([
-             'name' => $request->name,
-             'kelompokjabatan' => $request->kelompokjabatan,
-             'tarifgaji' => $request->tarifgaji,
-         ]);
- 
-         // kembali kehalaman admin/category/index dengan membawa toastr.
-         return redirect(route('admin.jabatan.index'))->with('toast_success', 'Jabatan Created');
+
+        // masukan data baru category kedalam database.
+        Jabatan::create([
+            'name' => $request->name,
+            'kelompokjabatan' => $request->kelompokjabatan,
+            'tarifgaji' => $request->tarifgaji,
+        ]);
+
+        // kembali kehalaman admin/category/index dengan membawa toastr.
+        return redirect(route('admin.jabatan.index'))->with('toast_success', 'Jabatan Created');
     }
 
     /**
@@ -92,8 +92,8 @@ class JabatanController extends Controller
             'tarifgaji' => $request->tarifgaji,
         ]);
 
-         // kembali kehalaman admin/jabatan/index dengan membawa toastr.
-         return redirect(route('admin.jabatan.index'))->with('toast_success', 'Jabatan Updated');
+        // kembali kehalaman admin/jabatan/index dengan membawa toastr.
+        return redirect(route('admin.jabatan.index'))->with('toast_success', 'Jabatan Updated');
     }
 
     /**

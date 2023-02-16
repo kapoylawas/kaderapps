@@ -8,7 +8,7 @@
                 <div class="col">
                     <div class="card-body">
                         <div class="col mb-5">
-                            <a href="" class="btn btn-success btn-sm float-right">
+                            <a href="{{ route('admin.puskesmas.create') }}" class="btn btn-success btn-sm float-right">
                                 <span><i class="fa fa-plus"></i></span>
                                 Tambah
                             </a>
@@ -18,39 +18,26 @@
                                 <tr>
                                     <th style="width: 5%">No</th>
                                     <th>Nama Puskesmas</th>
-                                    <th>Kecamatan</th>
+                                    <th>Alamat</th>
+                                    <th>Email</th>
+                                    <th>Telepon</th>
                                     <th style="width: 20%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Puskesmas 1</td>
-                                    <td>Sidoarjo</td>
+                                    @foreach ($puskesmas as $i => $puskesmas)
+                                    <td>{{ ++$i }}</td>
+                                    <td>{{ $puskesmas ->name }}</td>
+                                    <td>{{ $puskesmas->alamat }}</td>
+                                    <td>{{ $puskesmas->email }}</td>
+                                    <td>{{ $puskesmas->tlp }}</td>
                                     <td>
-                                        <form action="" method="POST">
-                                            @csrf
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <div class="col-1">
-                                                        <button type="submit" href=""
-                                                            class="btn btn-sm btn-primary ms-auto" value="">
-                                                            <i class="fa fa-eye"></i></span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-1">
-                                                        <x-button-edit url=""></x-button-edit>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-1">
-                                                        <x-button-delete url="" id=""></x-button-delete>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        <x-button-edit :url="route('admin.puskesmas.edit', $puskesmas->id)" />
+                                        <x-button-delete :id="$puskesmas->id"
+                                            :url="route('admin.puskesmas.destroy', $puskesmas->id)" />
                                     </td>
+                                    @endforeach
                                 </tr>
                             </tbody>
                         </table>
