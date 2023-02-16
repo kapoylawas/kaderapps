@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link ">
+                    <a href="{{ route('admin.bank.index') }}" class="nav-link {{ active('admin.bank.index') }} ">
                         <i class="fa fa-bank"></i>
                         <p>
                             Data Bank
@@ -53,7 +53,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link ">
+                    <a href="{{ route('admin.puskesmas.index') }}"
+                        class="nav-link {{ active('admin.puskesmas.index') }} ">
                         <i class="fa fa-hospital-o"></i>
                         <p>
                             Data Puskesmas
@@ -61,7 +62,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.biodata.index') }}" class="nav-link {{ active('admin.biodata.index') }} ">
                         <i class="fas fa-address-book"></i>
                         <p>
                             Biodata
@@ -69,14 +70,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.user.index') }}" class="nav-link {{ active('admin.user.index') }}">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link">
                         <i class="fas fa-address-book"></i>
                         <p>
                             User
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">Data SK</li>
+                <li class="nav-header">DATA SK</li>
                 <li class="nav-item">
                     <a href="" class="nav-link">
                         <i class="fa fa-address-card"></i>

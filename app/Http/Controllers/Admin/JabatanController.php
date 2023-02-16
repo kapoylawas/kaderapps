@@ -25,7 +25,7 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.jabatan.create');
     }
 
     /**

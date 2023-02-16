@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PuskesmasController extends Controller
+class BiodataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,10 @@ class PuskesmasController extends Controller
      */
     public function index()
     {
-        return view('admin.puskesmas.index');
+        return view('admin.biodata.index');
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +26,7 @@ class PuskesmasController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.biodata.create');
     }
 
     /**

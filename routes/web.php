@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BankController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BiodataController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PuskesmasController;
-use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
 
     Route::resource('/jabatan', JabatanController::class)->only('index', 'update', 'destroy');
+
+    Route::resource('/bank', BankController::class)->only('index', 'update', 'destroy');
+
+    Route::resource('/puskesmas', PuskesmasController::class)->only('index', 'update', 'destroy');
+
+    Route::resource('/biodata', BiodataController::class)->only('index', 'update', 'create', 'destroy', 'viewBiodata', 'viewJabatan');
 });
