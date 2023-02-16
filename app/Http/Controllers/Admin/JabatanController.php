@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Exception;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\JabatanRequest;
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,9 +18,11 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        $jabatan = Jabatan::All();
-        // passing varibel $jabatan  kedalam view.
-        return view('admin.jabatan.index', compact('jabatan'));
+
+        $jabatans = Jabatan::latest()->paginate(10);
+
+        // passing varibel $users dan $roles kedalam view.
+        return view('admin.jabatan.index', compact('jabatans'));
     }
 
     /**
@@ -29,7 +32,6 @@ class JabatanController extends Controller
      */
     public function create()
     {
-
         return view('admin.jabatan.create');
     }
 
@@ -39,21 +41,18 @@ class JabatanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JabatanRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'kelompok' => 'required',
-            'gaji' => 'required'
-        ]);
-        //insert data $request ke tabel jabatan
-        Jabatan::create([
-            'name' => $request->name,
-            'kelompokjabatan' => $request->kelompok,
-            'tarifgaji' => $request->gaji
-        ]);
-        Session::flash('success', 'Update data berhasil');
-        return redirect('admin/jabatan');
+ 
+         // masukan data baru category kedalam database.
+         Jabatan::create([
+             'name' => $request->name,
+             'kelompokjabatan' => $request->kelompokjabatan,
+             'tarifgaji' => $request->tarifgaji,
+         ]);
+ 
+         // kembali kehalaman admin/category/index dengan membawa toastr.
+         return redirect(route('admin.jabatan.index'))->with('toast_success', 'Jabatan Created');
     }
 
     /**
@@ -73,11 +72,12 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jabatan $jabatan)
     {
-        $jabatan = Jabatan::find($id);
+        // passing varibel $jabatan kedalam view.
         return view('admin.jabatan.edit', compact('jabatan'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -86,22 +86,16 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update(JabatanRequest $request, Jabatan $jabatan)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'kelompok' => 'required',
-            'gaji' => 'required'
+        $jabatan->update([
+            'name' => $request->name,
+            'kelompokjabatan' => $request->kelompokjabatan,
+            'tarifgaji' => $request->tarifgaji,
         ]);
 
-        $jabatan = Jabatan::find($id);
-        $jabatan->name = $request->name;
-        $jabatan->kelompokjabatan = $request->kelompok;
-        $jabatan->tarifgaji = $request->gaji;
-        $jabatan->save();
-
-        Session::flash('success', 'Update data berhasil');
-        return redirect('admin/jabatan');
+         // kembali kehalaman admin/jabatan/index dengan membawa toastr.
+         return redirect(route('admin.jabatan.index'))->with('toast_success', 'Jabatan Updated');
     }
 
     /**
@@ -110,11 +104,12 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jabatan $jabatan)
     {
-        $jabatan = Jabatan::find($id);
+        // hapus data jabatan berdasarkan id.
         $jabatan->delete();
 
-        return redirect('admin/jabatan');
+        // kembali kehalaman sebelumnya dengan membawa toastr.
+        return back()->with('toast_success', 'Jabatan Deleted');
     }
 }
