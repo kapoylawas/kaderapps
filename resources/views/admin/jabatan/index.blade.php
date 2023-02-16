@@ -8,7 +8,7 @@
                 <div class="col">
                     <div class="card-body">
                         <div class="col mb-5">
-                            <a href="{{ 'add-jabatan' }}" class="btn btn-success btn-sm float-right">
+                            <a href="{{ route('admin.jabatan.create') }}" class="btn btn-success btn-sm float-right">
                                 <span><i class="fa fa-plus"></i></span>
                                 Tambah
                             </a>
@@ -23,10 +23,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $i=1; ?>
+                                @foreach ($jabatan as $data)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Jabatan 1</td>
-                                    <td>Rp. 30.000</td>
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $data->name }}</td>
+                                    <td>{{ $data->tarifgaji }}</td>
                                     <td>
                                         <form action="" method="POST">
                                             @csrf
@@ -40,18 +42,22 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-1">
-                                                        <x-button-edit url=""></x-button-edit>
+                                                        <x-button-edit
+                                                            url="{{ route('admin.jabatan.edit',$data->id) }}">
+                                                        </x-button-edit>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <div class="col-1">
-                                                        <x-button-delete url="" id=""></x-button-delete>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </form>
+                                        <div class="form-group">
+                                            <div class="col-1">
+                                                <x-button-delete url="{{ route('admin.jabatan.destroy',$data->id) }}"
+                                                    id="{{ $data->id }}">
+                                                </x-button-delete>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -31,11 +31,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
 
     Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
 
-    Route::resource('/jabatan', JabatanController::class)->only('index', 'update', 'destroy');
+    Route::resource('/jabatan', JabatanController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 
     Route::resource('/bank', BankController::class)->only('index', 'update', 'destroy');
 
     Route::resource('/puskesmas', PuskesmasController::class)->only('index', 'update', 'destroy');
 
-    Route::resource('/biodata', BiodataController::class)->only('index', 'update', 'create', 'destroy', 'viewBiodata', 'viewJabatan');
+    Route::resource('/biodata', BiodataController::class)->only('index', 'update', 'create', 'destroy');
 });
