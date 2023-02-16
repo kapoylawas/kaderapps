@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\JabatanRequest;
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 
 class JabatanController extends Controller
 {
