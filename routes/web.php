@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\BiodataController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PuskesmasController;
+use App\Http\Controllers\Admin\BiodatakaderController;
+use App\Http\Controllers\Admin\SKController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +40,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/biodata', BiodataController::class)->only('index', 'update', 'create', 'destroy');
 
     Route::resource('/jabatan', JabatanController::class);
+
+    Route::resource('/biodatakader', BiodatakaderController::class)->only('index', 'update', 'create', 'destroy');
+
+    Route::resource('/sk', SKController::class)->only('index', 'update', 'create', 'destroy');
 });
