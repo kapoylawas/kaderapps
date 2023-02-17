@@ -25,8 +25,8 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($puskesmas as $i => $puskesmas)
                                 <tr>
-                                    @foreach ($puskesmas as $i => $puskesmas)
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $puskesmas ->name }}</td>
                                     <td>{{ $puskesmas->alamat }}</td>
@@ -37,8 +37,8 @@
                                         <x-button-delete :id="$puskesmas->id"
                                             :url="route('admin.puskesmas.destroy', $puskesmas->id)" />
                                     </td>
-                                    @endforeach
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

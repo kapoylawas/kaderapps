@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Request\PuskesmasRequest;
+use App\Http\Requests\PuskesmasRequest;
 use App\Models\Puskesmas;
 use Illuminate\Http\Request;
 
@@ -37,7 +37,7 @@ class PuskesmasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PuskesmasRequest $request)
     {
         // masukan data baru category kedalam database.
         Puskesmas::create([
@@ -82,18 +82,20 @@ class PuskesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Puskesmas $puskesmas)
+    public function update(PuskesmasRequest $request, Puskesmas $puskesmas)
     {
-        
+        // dd($request);
+
         $puskesmas->update([
             'name' => $request->name,
             'alamat' => $request->alamat,
             'email' => $request->email,
             'tlp' => $request->notelp
         ]);
-
+        dd($puskesmas);
         // kembali kehalaman admin/bank/index dengan membawa toastr.
         return redirect(route('admin.puskesmas.index'))->with('toast_success', 'Puskesmas Updated');
+        // dd($puskesmas);
     }
 
     /**
@@ -102,10 +104,10 @@ class PuskesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Puskesmas $puskesmas)
+    public function destroy(Puskesmas $request)
     {
         // hapus data jabatan berdasarkan id.
-        $puskesmas->delete();
+        $request->delete();
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
         return back()->with('toast_success', 'Puskesmas Deleted');
