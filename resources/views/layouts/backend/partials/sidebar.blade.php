@@ -96,7 +96,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.perhitungan.index') }}" class="nav-link">
                         <i class="fas fa-file"></i>
                         <p>
                             Perhitungan Honor
