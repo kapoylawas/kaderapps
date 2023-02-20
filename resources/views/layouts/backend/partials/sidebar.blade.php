@@ -79,15 +79,6 @@
                 </li>
                 <li class="nav-header">DATA SK</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.biodatakader.index') }}" class="nav-link">
-                        <i class="fa fa-address-card">
-                        </i>
-                        <p>
-                            Biodata Kader
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('admin.sk.index') }}" class="nav-link">
                         <i class="fas fa-file"></i>
                         <p>
@@ -97,7 +88,7 @@
                 </li>
                 <li class="nav-header">LAPORAN</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.rekaphonor.index') }}" class="nav-link">
                         <i class="fas fa-file"></i>
                         <p>
                             Rekap Honor

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BiodatakaderController extends Controller
+class RekaphonorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class BiodatakaderController extends Controller
      */
     public function index()
     {
-        return view('admin.biodatakader.index');
+        return view('admin.rekaphonor.index');
     }
 
     
@@ -25,7 +25,7 @@ class BiodatakaderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.rekaphonor.input');
     }
 
     /**
