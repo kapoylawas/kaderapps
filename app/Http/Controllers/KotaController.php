@@ -1,16 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Models\Kota;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Biodata;
-use App\Models\Kecamatan;
-use App\Models\Kelurahan;
-use Spatie\Permission\Models\Role;
 
-class BiodataController extends Controller
+class KotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +13,8 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        return view('admin.biodata.index');
+        //
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -31,12 +23,7 @@ class BiodataController extends Controller
      */
     public function create()
     {
-        $kotas = Kota::latest()->paginate(10);
-        $kecamatans = Kecamatan::latest()->paginate(10);
-        $kelurahans = Kelurahan::latest()->paginate(10);
-        $biodatas = Biodata::with('kecamatans', 'kelurahans')->get();
-        // dd($biodatas);
-        return view('admin.biodata.create', compact('biodatas', 'kotas', 'kecamatans', 'kelurahans'));
+        //
     }
 
     /**

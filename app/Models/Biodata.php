@@ -10,4 +10,13 @@ class Biodata extends Model
     use HasFactory;
 
     protected $fillable = ['id_kelurahan', 'id_kota', 'id_kecamatan', 'id_bank', 'name', 'alamat', 'tglLahir', 'norek', 'nohp', 'filektp', 'filebukutabungan', 'foto'];
+
+    public function kecamatans()
+    {
+        return $this->belongsTo(Kecamatan::class);
+    }
+    public function kelurahans()
+    {
+        return $this->belongsTo(Kelurahan::class);
+    }
 }
