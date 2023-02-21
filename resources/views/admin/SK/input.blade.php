@@ -6,78 +6,76 @@
         <div class="col">
             <div class="col-lg-7">
                 <div class="container-fluid">
-                    <div class="col mb-6 mt-6 ml-6">
+                    <div class="col mb-5 mt-3 ml-6">
                         <div class="card-body">
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="" method="POST">
+                                        @csrf
+                                        <div class="mb-4 row">
+                                            <label for="" class="col-sm-2 col-form-label">Tahun</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control form-control-md" id="" name=""
+                                                    value="">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row">
+                                            <label for="" class="col-sm-2 col-form-label">Kecamatan</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control form-control-md" name="bentuk" id="bentuk">
+                                                    <option value="Krian">Krian</option>
+                                                    <option value="Sukodono">Sukodono</option>
+                                                    <option value="Wonoayu">Wonoayu</option>
+                                                    <option value="Tarik">Tarik</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row">
+                                            <label for="" class="col-sm-2 col-form-label">Kelurahan</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control form-control-md" name="bentuk" id="bentuk">
+                                                    <option value="Krian">Krian</option>
+                                                    <option value="Sukodono">Sukodono</option>
+                                                    <option value="Wonoayu">Wonoayu</option>
+                                                    <option value="Tarik">Tarik</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-2 row">
+                                            <label for="" class="col-sm-2 col-form-label">Kelompok Jabatan</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control form-control-md" name="bentuk" id="bentuk">
+                                                    <option value="Krian">Lurah</option>
+                                                    <option value="Sukodono">Modin</option>
+                                                    <option value="Wonoayu">Sekertaris</option>
+                                                    <option value="Tarik">Bendahara</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row">
+                                            <label for="" class="col-sm-2 col-form-label">No SK</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control form-control-md" id="" name=""
+                                                    value="">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row">
+                                            <label for="" class="col-sm-2 col-form-label">Tanggal SK</label>
+                                            <div class="col-sm-6">
+                                                <input type="date" class="form-control form-control-md" id="" name=""
+                                                    value="">
+                                            </div>
+                                        </div>
+                                        <div class="mb-2 row">
+                                            <label for="" class="col-sm-2 col-form-label">Upload File SK</label>
+                                            <div class="col-sm-6">
+                                                <input type="file" class="form-control form-control-md" id="" name=""
+                                                    value="">
+                                            </div>
+                                        </div>
+                                </div>
+                                </form>
                             </div>
-                            <div class="card-body">
-                                <form action="" method="POST">
-                                    @csrf
-                                    <div class="mb-4 row">
-                                        <label for="" class="col-sm-2 col-form-label">Tahun</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-md" id="" name=""
-                                                value="">
-                                        </div>
-                                    </div>
-                                    <div class="mb-4 row">
-                                        <label for="" class="col-sm-2 col-form-label">Kecamatan</label>
-                                        <div class="col-sm-6">
-                                            <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                                <option value="Krian">Krian</option>
-                                                <option value="Sukodono">Sukodono</option>
-                                                <option value="Wonoayu">Wonoayu</option>
-                                                <option value="Tarik">Tarik</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-4 row">
-                                        <label for="" class="col-sm-2 col-form-label">Kelurahan</label>
-                                        <div class="col-sm-6">
-                                            <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                                <option value="Krian">Krian</option>
-                                                <option value="Sukodono">Sukodono</option>
-                                                <option value="Wonoayu">Wonoayu</option>
-                                                <option value="Tarik">Tarik</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-2 row">
-                                        <label for="" class="col-sm-2 col-form-label">Kelompok Jabatan</label>
-                                        <div class="col-sm-6">
-                                            <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                                <option value="Krian">Lurah</option>
-                                                <option value="Sukodono">Modin</option>
-                                                <option value="Wonoayu">Sekertaris</option>
-                                                <option value="Tarik">Bendahara</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-4 row">
-                                        <label for="" class="col-sm-2 col-form-label">No SK</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-md" id="" name=""
-                                                value="">
-                                        </div>
-                                    </div>
-                                    <div class="mb-4 row">
-                                        <label for="" class="col-sm-2 col-form-label">Tanggal SK</label>
-                                        <div class="col-sm-6">
-                                            <input type="date" class="form-control form-control-md" id="" name=""
-                                                value="">
-                                        </div>
-                                    </div>
-                                    <div class="mb-2 row">
-                                        <label for="" class="col-sm-2 col-form-label">Upload File SK</label>
-                                        <div class="col-sm-6">
-                                            <input type="file" class="form-control form-control-md" id="" name=""
-                                                value="">
-                                        </div>
-                                    </div>
-                            </div>
-                            </form>
                         </div>
                     </div>
                 </div>

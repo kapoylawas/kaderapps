@@ -39,7 +39,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
 
     Route::resource('/puskesmas', PuskesmasController::class);
 
-    Route::resource('/biodata', BiodataController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/biodata', BiodataController::class);
 
     Route::resource('/jabatan', JabatanController::class);
 

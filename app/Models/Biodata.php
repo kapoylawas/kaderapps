@@ -13,10 +13,10 @@ class Biodata extends Model
 
     public function kecamatans()
     {
-        return $this->belongsTo(Kecamatan::class);
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan');
     }
     public function kelurahans()
     {
-        return $this->belongsTo(Kelurahan::class);
+        return $this->belongsTo(Kelurahan::class, 'id_kelurahan');
     }
 }

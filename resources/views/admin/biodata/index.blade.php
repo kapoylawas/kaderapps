@@ -25,13 +25,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="col mb-5">
+                            {{-- <div class="col mb-5">
                                 <a href="{{ route('admin.biodata.create') }}"
                                     class="btn btn-success btn-sm float-right">
                                     <span><i class="fa fa-plus"></i></span>
                                     Tambah
                                 </a>
-                            </div>
+                            </div> --}}
                             <table class="table table-bordered text-center">
                                 <thead>
                                     <tr>
@@ -40,20 +40,23 @@
                                         <th>Nama</th>
                                         <th>Alamat</th>
                                         <th>Kecamatan</th>
-                                        <th>Kellurahan</th>
+                                        <th>Kelurahan</th>
                                         <th>No HP</th>
                                         <th style="width: 12%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($biodatas as $i=>$biodata)
+
+
                                     <tr>
-                                        <td>1</td>
-                                        <td>123456</td>
-                                        <td>Nama</td>
-                                        <td>Alamat 1</td>
-                                        <td>Rp.Kecamatan</td>
-                                        <td>Kelurahan</td>
-                                        <td>081234567</td>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $biodata->nik }}</td>
+                                        <td>{{ $biodata->name }}</td>
+                                        <td>{{ $biodata->alamat }}</td>
+                                        <td>{{ $biodata->kecamatans->name }}</td>
+                                        <td>{{ $biodata->kelurahans->name }}</td>
+                                        <td>{{ $biodata->nohp }}</td>
                                         <td>
                                             <form action="" method="POST">
                                                 @csrf
@@ -66,11 +69,11 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
+                                                    {{-- <div class="form-group">
                                                         <div class="col-1">
                                                             <x-button-edit url=""></x-button-edit>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="form-group">
                                                         <div class="col-1">
                                                             <x-button-delete url="" id=""></x-button-delete>
@@ -80,6 +83,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

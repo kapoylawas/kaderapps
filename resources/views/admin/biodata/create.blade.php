@@ -3,11 +3,11 @@
 @section('content')
 {{-- <x-card title="Biodata dan History Jabatan"> --}}
     <div class="row">
-        <div class="col-12">
-            <div class="col-12">
+        <div class="col-10  ml-4">
+            <div class="col-3">
                 <x-input-search placeholder="Search kader.." :url="route('admin.user.index')" />
             </div>
-            <x-card title="Data User">
+            <x-card class="col-8" title="Data User">
                 <table class="table">
                     <thead>
                         <tr>
@@ -23,12 +23,12 @@
                     <tbody>
                         @foreach ($biodatas as $i => $biodata)
                         <tr>
-                            <td>{{ $biodata->$i }}</td>
+                            <td>{{ ++$i }}</td>
                             <td>{{ $biodata->name }}</td>
                             <td>{{ $biodata->nik }}</td>
                             <td>{{ $biodata->alamat }}</td>
-                            <td>{{ $biodata->kecamatan }}</td>
-                            <td>{{ $biodata->kelurahan }}</td>
+                            <td>{{ $biodata->kecamatans->name }}</td>
+                            <td>{{ $biodata->kelurahans->name }}</td>
                             <td>
                         </tr>
                         @endforeach
@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="container-fluid">
-                <div class="col mb-5 mt-5 ml-5">
+                <div class="col mb-5 mt-3 ml-5">
                     <div class="card-body">
                         <div class="col">
                             <i class="fa fa-user-circle" style="font-size: 5rem"></i>
@@ -53,140 +53,156 @@
                         <div class="card-body">
                             <div class="">
                                 <a class="btn btn-sm  btn-warning" href="">Biodata</a>
-                                <a class="btn btn-sm  btn-warning" href="">History Jabatan</a>
+                                {{-- <a class="btn btn-sm  btn-warning" href="">History Jabatan</a> --}}
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="{{ route('admin.biodata.store') }}" method="POST">
                                 @csrf
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Nama</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-md" id="" name="nama"
-                                            value="">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">NIK</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-md" id="" name="nik"
-                                            value="">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Tempat Lahir</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-md" id="" name="" value="">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-sm-5">
-                                        <input type="date" class="form-control form-control-md" id="" name="" value="">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Alamat</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-md" id="" name="" value="">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Kota</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" id="kota">
-                                            <option value="">--Pilih Kota--</option>
-                                            @foreach ($kotas as $kota)
-                                            <option id="kota" class="form-control @error('kota') is-invalid @enderror"
-                                                name="kota" value="{{ $kota->id }}">
-                                                {{ $kota->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                        @error('kota')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
+                                <x-card-form title="CREATE NEW BIODATA" url="{{ route('admin.sk.create') }}"
+                                    titleBtn="Create Jabatan">
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Nama</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-md" id="" name="name"
+                                                value="">
                                         </div>
-                                        @enderror
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Kecamatan</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control">
-                                            <option value="">--Pilih Kecamatan--</option>
-                                            @foreach ($kecamatans as $kecamatan)
-                                            <option class="form-control @error('kecamatan') is-invalid @enderror"
-                                                name="kota" value="{{ $kecamatan->id }}">
-                                                {{ $kecamatan->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                        @error('kecamatan')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">NIK</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-md" id="" name="nik"
+                                                value="">
                                         </div>
-                                        @enderror
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Kelurahan</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control">
-                                            <option value="">--Pilih Kelurahan--</option>
-                                            @foreach ($kelurahans as $kelurahan)
-                                            <option class="form-control @error('kelurahan') is-invalid @enderror"
-                                                name="kelurahan" value="{{ $kelurahan->id }}">
-                                                {{ $kelurahan->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                        @error('kelurahan')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-md" id="tempatLahir"
+                                                name="tempatLahir" value="">
                                         </div>
-                                        @enderror
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">No HP</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-md" id="" name="" value="">
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                        <div class="col-sm-5">
+                                            <input type="date" class="form-control form-control-md" id="tglLahir"
+                                                name="tglLahir" value="">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">No Rekening</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-md" id="" name="" value="">
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Alamat</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-md" id="alamat"
+                                                name="alamat" value="">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Bank</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-md" id="" name="" value="">
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Kota</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="kota" name="kota">
+                                                <option value="">--Pilih Kota--</option>
+                                                @foreach ($kotas as $kota)
+                                                <option id="kota"
+                                                    class="form-control @error('kota') is-invalid @enderror" name="kota"
+                                                    value="{{ $kota->id }}">
+                                                    {{ $kota->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @error('kota')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Upload Buku Tabungan</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control form-control-md" id="" name="" value="">
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Kecamatan</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="kecamatan">
+                                                <option value="">--Pilih Kecamatan--</option>
+                                                @foreach ($kecamatans as $kecamatan)
+                                                <option class="form-control @error('kecamatan') is-invalid @enderror"
+                                                    name="kecamatan" value="{{ $kecamatan->id }}">
+                                                    {{ $kecamatan->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @error('kecamatan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="" class="col-sm-2 col-form-label">Upload KTP</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control form-control-md" id="" name="" value="">
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Kelurahan</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="kelurahan">
+                                                <option value="">--Pilih Kelurahan--</option>
+                                                @foreach ($kelurahans as $kelurahan)
+                                                <option class="form-control @error('kelurahan') is-invalid @enderror"
+                                                    name="kelurahan" value="{{ $kelurahan->id }}">
+                                                    {{ $kelurahan->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @error('kelurahan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row float-right">
-                                    <a type="submit" href="{{ route('admin.sk.create') }}"
-                                        class="btn btn-warning btn-sm">
-                                        Kembali
-                                    </a>
-                                    <a href="" class="btn btn-success btn-sm ml-1">
-                                        Simpan
-                                    </a>
-                                </div>
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">No HP</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-md" id="nohp"
+                                                name="nohp" value="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">No Rekening</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-md" id="norek"
+                                                name="norek" value="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Bank</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="bank" name="bank">
+                                                <option value="">--Pilih Bank--</option>
+                                                @foreach ($banks as $bank)
+                                                <option id="bank"
+                                                    class="form-control @error('bank') is-invalid @enderror" name="bank"
+                                                    value="{{ $bank->id }}">
+                                                    {{ $bank->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @error('bank')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Upload Buku Tabungan</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control form-control-md" id="tabungan"
+                                                name="tabungan" value="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="" class="col-sm-2 col-form-label">Upload KTP</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control form-control-md" id="ktp" name="ktp"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </x-card-form>
                             </form>
                         </div>
                     </div>
