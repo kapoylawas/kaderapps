@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PerhitunganController extends Controller
+class PayrolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PerhitunganController extends Controller
      */
     public function index()
     {
-        return view('admin.perhitungan.index');
+        return view('admin.payrol.index');
     }
 
     
@@ -25,7 +25,7 @@ class PerhitunganController extends Controller
      */
     public function create()
     {
-        return view('admin.perhitungan.detail');
+        //
     }
 
     /**

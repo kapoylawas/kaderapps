@@ -104,7 +104,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.payrol.index') }}" class="nav-link">
                         <i class="fas fa-file"></i>
                         <p>
                             Payrol

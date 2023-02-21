@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PuskesmasController;
 use App\Http\Controllers\Admin\SKController;
 use App\Http\Controllers\Admin\RekaphonorController;
 use App\Http\Controllers\Admin\PerhitunganController;
+use App\Http\Controllers\Admin\PayrolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +48,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/rekaphonor', RekaphonorController::class)->only('index', 'update', 'create', 'destroy');
 
     Route::resource('/perhitungan', PerhitunganController::class)->only('index', 'update', 'create', 'destroy');
+
+    Route::resource('/payrol', PayrolController::class)->only('index', 'update', 'create', 'destroy');
 });
