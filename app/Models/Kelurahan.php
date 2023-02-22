@@ -9,5 +9,10 @@ class Kelurahan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'kecamatan_id'];
+
+    public function kecamatans()
+    {
+        return $this->belongsTo(Kecamatan::class, 'kecamatan_id');
+    }
 }

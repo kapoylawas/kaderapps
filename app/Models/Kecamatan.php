@@ -9,5 +9,9 @@ class Kecamatan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'kota_id'];
+    public function kotas()
+    {
+        return $this->belongsTo(Kota::class, 'kota_id');
+    }
 }

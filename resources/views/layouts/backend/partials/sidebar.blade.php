@@ -62,6 +62,24 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.kelurahan.index') }}"
+                        class="nav-link {{ active('admin.kelurahan.index') }} ">
+                        <i class="fa fa-hospital-o"></i>
+                        <p>
+                            Data Kelurahan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.kecamatan.index') }}"
+                        class="nav-link {{ active('admin.kecamatan.index') }} ">
+                        <i class="fa fa-hospital-o"></i>
+                        <p>
+                            Data Kecamatan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.biodata.index') }}" class="nav-link {{ active('admin.biodata.index') }} ">
                         <i class="fas fa-address-book"></i>
                         <p>

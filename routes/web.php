@@ -1,16 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SKController;
 use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PayrolController;
 use App\Http\Controllers\Admin\BiodataController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\KecamatanController;
+use App\Http\Controllers\Admin\KelurahanController;
 use App\Http\Controllers\Admin\PuskesmasController;
-use App\Http\Controllers\Admin\SKController;
 use App\Http\Controllers\Admin\RekaphonorController;
 use App\Http\Controllers\Admin\PerhitunganController;
-use App\Http\Controllers\Admin\PayrolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/bank', BankController::class);
 
     Route::resource('/puskesmas', PuskesmasController::class);
+    Route::resource('/kelurahan', KelurahanController::class);
+    Route::resource('/kecamatan', KecamatanController::class);
 
     Route::resource('/biodata', BiodataController::class);
 
