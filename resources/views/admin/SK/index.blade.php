@@ -37,13 +37,13 @@
                             <table class="table table-bordered text-center">
                                 <thead>
                                     <tr>
-                                        <th style="width: 5%">No</th>
+                                        <th style="width: 4%">No</th>
                                         <th>Tahun</th>
                                         <th>Kecamatan</th>
                                         <th>Kelurahan</th>
                                         <th>No SK</th>
                                         <th>Kelompok Jabatan</th>
-                                        <th style="width: 12%">Aksi</th>
+                                        <th style="width: 10%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
