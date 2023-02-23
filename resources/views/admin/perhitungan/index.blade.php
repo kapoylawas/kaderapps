@@ -82,28 +82,28 @@
                                     <label for="" class="col-sm-4 col-form-label">Total</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control form-control-md" id="" name="nama"
-                                            value="">
+                                            value="" placeholder="Enter Total">
                                     </div>
                                 </div>
                                 <div class="mb-2 row">
                                     <label for="" class="col-sm-4 col-form-label">Total Biaya Tranfer</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control form-control-md" id="" name="nama"
-                                            value="">
+                                            value="" placeholder="Enter Total Biaya Tranfer">
                                     </div>
                                 </div>
                                 <div class="mb-2 row">
                                     <label for="" class="col-sm-4 col-form-label">Total Pajak</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control form-control-md" id="" name="nama"
-                                            value="">
+                                            value="" placeholder="Enter Total Pajak">
                                     </div>
                                 </div>
                                 <div class="mb-2 row">
                                     <label for="" class="col-sm-4 col-form-label">Total Terima Bersih</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control form-control-md" id="" name="nama"
-                                            value="">
+                                            value="" placeholder="Enter Total Terima Bersih">
                                     </div>
                                 </div>
                             </form>
@@ -113,7 +113,7 @@
                 </div>    
             </div>
     <div class="row">
-        <div class="col-lg-10 ml-5">
+        <div class="col-lg-11 ml-5">
         <div class="container-fluid">
         <table class="table table-bordered text-center">
             <thead>

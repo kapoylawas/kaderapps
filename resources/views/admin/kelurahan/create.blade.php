@@ -5,9 +5,9 @@
     <div class="col-10">
         <form action="{{ route('admin.kelurahan.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <x-card-form title="CREATE NEW KELURAHAN" url="{{ route('admin.kelurahan.index') }}"
-                titleBtn="Create Kelurahan">
-                <x-input title="Nama Kelurahan" type="text" name="name" placeholder="Enter Kelurahan"
+            <x-card-form title="CREATE NEW KELURAHAN / DESA" url="{{ route('admin.kelurahan.index') }}"
+                titleBtn="Create Kelurahan / Desa">
+                <x-input title="Nama Kelurahan / Desa" type="text" name="name" placeholder="Enter Kelurahan / Desa"
                     :value="old('name')" />
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label">Kecamatan</label>

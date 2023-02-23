@@ -19,7 +19,7 @@
                             <thead>
                                 <tr>
                                     <th style="width: 5%">No</th>
-                                    <th>Nama Kelurahan</th>
+                                    <th>Nama Kelurahan / Desa</th>
                                     <th>Nama Kecamatan</th>
                                     <th style="width: 20%">Aksi</th>
                                 </tr>

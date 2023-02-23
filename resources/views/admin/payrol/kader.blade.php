@@ -12,77 +12,76 @@
             <h3 style="text-align: center"> PEMINDAHBUKUAN KE MASING - MASING REKENING </h3>
             <h3 style="text-align: center"> Pembayaran Belanja Honor Kader Posyandu Balita (PROGRAM PRIORITAS) </h3>
         </div>
-        <div class="col-lg-12 col-12">
-            <div class="container-fluid">
-        <div class="ml-5">
-        <div class="col">
-            <div class="card-body">
-            <div class="col mb-10">
-                <table class="table table-bordered text-center">
-                    <thead>
-                        <tr>
-                            <th style="width: 3%">No</th>
-                            <th>NO REKENING</th>
-                            <th>NAMA BANK</th>
-                            <th>NAMA</th>
-                            <th>JUMLAH UANG</th>
-                            <th>VOL</th>
-                            <th>JUMLAH TOTAL</th>
-                            <th>BIAYA TRANSFER</th>
-                            <th>JUMLAH DITERIMA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td> 1 </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                    </tbody>
-                    <tbody>
-                        <td> 2 </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                    </tbody>
-                    <tbody>
-                        <td> 3 </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                        <td>  </td>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th colspan="4"> JUMLAH KESELURUAN </th>
-                            <th class=""></th>
-                            <th class=""></th>
-                            <th class=""></th>
-                            <th class=""></th>
-                            <th class=""></th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            </div>
+            <div class="col-lg-12 col-12">
+                <div class="container-fluid">
+                <div class="ml-5">
+                    <div class="col">
+                        <div class="card-body">
+                        <div class="col mb-10">
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 3%">No</th>
+                                        <th>NO REKENING</th>
+                                        <th>NAMA BANK</th>
+                                        <th>NAMA</th>
+                                        <th>JUMLAH UANG</th>
+                                        <th>VOL</th>
+                                        <th>JUMLAH TOTAL</th>
+                                        <th>BIAYA TRANSFER</th>
+                                        <th>JUMLAH DITERIMA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <td> 1 </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                </tbody>
+                                <tbody>
+                                    <td> 2 </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                </tbody>
+                                <tbody>
+                                    <td> 3 </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="4"> JUMLAH KESELURUAN </th>
+                                        <th class=""></th>
+                                        <th class=""></th>
+                                        <th class=""></th>
+                                        <th class=""></th>
+                                        <th class=""></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </div>
-        </div>
-        </div> 
-        </div>
-    </div>
     </div>
 </x-card>
 @endsection

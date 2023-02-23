@@ -6,7 +6,7 @@
         <form action="{{ route('admin.kelurahan.update', $kelurahan->id) }}" method="POST">
             @csrf
             @method('PUT')
-            <x-card-form title="EDIT KELURAHAN" url="{{ route('admin.kelurahan.index') }}" titleBtn="Update Kelurahan">
+            <x-card-form title="EDIT KELURAHAN / DESA" url="{{ route('admin.kelurahan.index') }}" titleBtn="Update Kelurahan / Desa">
                 <x-input title="Nama" type="text" name="name" placeholder="Enter bank" :value="$kelurahan->name" />
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label">Kecamatan</label>

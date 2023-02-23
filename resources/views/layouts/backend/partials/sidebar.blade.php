@@ -20,13 +20,11 @@
             <p class="brand-text">KAB. SIDOARJO</p>
         </div>
     </a>
-
     <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 @role('admin')
-                <li class="nav-header">DASHBOARD</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}" class="nav-link {{ active('admin.dashboard') }} ">
                         <i class="fa fa-home"></i>
@@ -35,49 +33,68 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">MASTER DATA</li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.jabatan.index') }}" class="nav-link {{ active('admin.jabatan.index') }} ">
-                        <i class="fas fa-sitemap"></i>
+                <li class="nav-item {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active' : '' }}">
+                        <i class="fa fa-globe"></i>
                         <p>
-                            Data Jabatan
+                        MASTER DATA
+                        <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.bank.index') }}" class="nav-link {{ active('admin.bank.index') }} ">
-                        <i class="fa fa-bank"></i>
-                        <p>
-                            Data Bank
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.puskesmas.index') }}"
-                        class="nav-link {{ active('admin.puskesmas.index') }} ">
-                        <i class="fa fa-hospital-o"></i>
-                        <p>
-                            Data Puskesmas
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.kelurahan.index') }}"
-                        class="nav-link {{ active('admin.kelurahan.index') }} ">
-                        <i class="fa fa-hospital-o"></i>
-                        <p>
-                            Data Kelurahan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.kecamatan.index') }}"
-                        class="nav-link {{ active('admin.kecamatan.index') }} ">
-                        <i class="fa fa-hospital-o"></i>
-                        <p>
-                            Data Kecamatan
-                        </p>
-                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.kecamatan.index') }}"
+                                class="nav-link {{ active('admin.kecamatan.index') }} ">
+                                <i class="fa fa-hospital-o"></i>
+                                <p>
+                                    Data Kecamatan
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.kelurahan.index') }}"
+                                class="nav-link {{ active('admin.kelurahan.index') }} ">
+                                <i class="fa fa-hospital-o"></i>
+                                <p>
+                                    Data Kelurahan / Desa
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.puskesmas.index') }}"
+                                class="nav-link {{ active('admin.puskesmas.index') }} ">
+                                <i class="fa fa-hospital-o"></i>
+                                <p>
+                                    Data Puskesmas
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.jabatan.index') }}" class="nav-link {{ active('admin.jabatan.index') }} ">
+                                <i class="fas fa-sitemap"></i>
+                                <p>
+                                    Data Jabatan
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.bank.index') }}" class="nav-link {{ active('admin.bank.index') }} ">
+                                <i class="fa fa-bank"></i>
+                                <p>
+                                    Data Bank
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.user.index') }}" class="nav-link">
+                                <i class="fas fa-address-book"></i>
+                                <p>
+                                    User
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-header">-----------------------------------------------</li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.biodata.index') }}" class="nav-link {{ active('admin.biodata.index') }} ">
@@ -88,46 +105,47 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.user.index') }}" class="nav-link">
-                        <i class="fas fa-address-book"></i>
-                        <p>
-                            User
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-header">DATA SK</li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.sk.index') }}" class="nav-link">
-                        <i class="fas fa-file"></i>
+                    <a href="{{ route('admin.sk.index') }}" class="nav-link {{ active('admin.sk.index') }}">
+                        <i class="fa fa-book"></i>
                         <p>
                             Data SK
                         </p>
                     </a>
-                </li>
-                <li class="nav-header">LAPORAN</li>
+                </li>            
                 <li class="nav-item">
-                    <a href="{{ route('admin.rekaphonor.index') }}" class="nav-link">
-                        <i class="fas fa-file"></i>
-                        <p>
-                            Rekap Honor
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.perhitungan.index') }}" class="nav-link">
-                        <i class="fas fa-file"></i>
+                    <a href="{{ route('admin.perhitungan.index') }}" class="nav-link {{ active('admin.perhitungan.index') }}">
+                        <i class="fa fa-calculator"></i>
                         <p>
                             Perhitungan Honor
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.payrol.index') }}" class="nav-link">
-                        <i class="fas fa-file"></i>
+                <li class="nav-item {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active' : '' }}">
+                        <i class="fa fa-files-o"></i>
                         <p>
-                            Payrol
+                        LAPORAN
+                        <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.rekaphonor.index') }}" class="nav-link {{ active('admin.rekaphonor.index') }}">
+                                <i class="fas fa-file"></i>
+                                <p>
+                                    Rekap Honor
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.payrol.index') }}" class="nav-link {{ active('admin.payrol.index') }}">
+                                <i class="fas fa-file"></i>
+                                <p>
+                                    Payrol
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 @endrole
                 @role('member|author')
