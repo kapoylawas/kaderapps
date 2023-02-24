@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-card title="Data Kelurahan/ Desa">
+<x-card title="Data Kelurahan">
 
     <div class="col-lg-8 col-6">
         <div class="container-fluid">
@@ -10,7 +10,7 @@
                 <div class="col">
                     <div class="card-body">
                         <div class="col mb-5">
-                            <a href="{{ route('admin.kelurahan.create') }}" class="btn btn-success btn-sm float-right">
+                            <a href="{{ route('admin.kota.create') }}" class="btn btn-success btn-sm float-right">
                                 <span><i class="fa fa-plus"></i></span>
                                 Tambah
                             </a>
@@ -19,21 +19,19 @@
                             <thead>
                                 <tr>
                                     <th style="width: 5%">No</th>
-                                    <th>Nama Kelurahan / Desa</th>
-                                    <th>Nama Kecamatan</th>
+                                    <th>Kota</th>
                                     <th style="width: 20%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($kelurahans as $i => $kelurahan)
+                                @foreach ($kotas as $i => $kota)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $kelurahan->name }}</td>
-                                    <td>{{ $kelurahan->kecamatans->name }}</td>
+                                    <td>{{ $kota->name }}</td>
                                     <td>
-                                        <x-button-edit :url="route('admin.kelurahan.edit', $kelurahan->id)" />
-                                        <x-button-delete :id="$kelurahan->id"
-                                            :url="route('admin.kelurahan.destroy', $kelurahan->id)" />
+                                        <x-button-edit :url="route('admin.kota.edit', $kota->id)" />
+                                        <x-button-delete :id="$kota->id"
+                                            :url="route('admin.kota.destroy', $kota->id)" />
                                     </td>
                                 </tr>
                                 @endforeach

@@ -6,7 +6,7 @@
         <div class="col">
             <div class="col-lg-7">
                 <div class="container-fluid">
-                    <div class="col mb-10 mt-10 ml-10">
+                    <div class="col mb-5 mt-3 ml-6">
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-body">
@@ -14,14 +14,14 @@
                                         @csrf
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">Tahun</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <input type="text" class="form-control form-control-md" id="" name=""
                                                     value="">
                                             </div>
                                         </div>
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">Kecamatan</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <select class="form-control form-control-md" name="bentuk" id="bentuk">
                                                     <option value="Krian">Krian</option>
                                                     <option value="Sukodono">Sukodono</option>
@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">Kelurahan</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <select class="form-control form-control-md" name="bentuk" id="bentuk">
                                                     <option value="Krian">Krian</option>
                                                     <option value="Sukodono">Sukodono</option>
@@ -41,9 +41,9 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-4 row">
+                                        <div class="mb-2 row">
                                             <label for="" class="col-sm-2 col-form-label">Kelompok Jabatan</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <select class="form-control form-control-md" name="bentuk" id="bentuk">
                                                     <option value="Krian">Lurah</option>
                                                     <option value="Sukodono">Modin</option>
@@ -54,86 +54,87 @@
                                         </div>
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">No SK</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <input type="text" class="form-control form-control-md" id="" name=""
                                                     value="">
                                             </div>
                                         </div>
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">Tanggal SK</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <input type="date" class="form-control form-control-md" id="" name=""
                                                     value="">
                                             </div>
                                         </div>
                                         <div class="mb-2 row">
                                             <label for="" class="col-sm-2 col-form-label">Upload File SK</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <input type="file" class="form-control form-control-md" id="" name=""
                                                     value="">
                                             </div>
                                         </div>
-                                    </div>
-                                    </form>
+                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-                <div class="card-body">
-                    <div class="col mb-5">
-                        <a href="{{ route('admin.sk.create') }}" class="btn btn-success btn-sm float-right">
-                            <span><i class="fa fa-plus"></i></span>
-                            Tambah
-                        </a>
-                    </div>
-                    <table class="table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th style="width: 3%">No</th>
-                                <th>Nama</th>
-                                <th>NIK</th>
-                                <th>Kecamatan</th>
-                                <th>Kelurahan</th>
-                                <th>Jabatan</th>
-                                <th style="width: 7%">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Sueb</td>
-                                <td>3515115422650</td>
-                                <td>Wonoayu</td>
-                                <td>Candinegoro</td>
-                                <td>Lurah</td>
-                                <td>
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <div class="col-1">
-                                                    <x-button-edit url=""></x-button-edit>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-1">
-                                                    <x-button-delete url="" id=""></x-button-delete>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            <div class="col-lg-12 mb-5 ">
-                <a href="" class="btn btn-success btn-sm float-right">
-                    Simpan
-                </a>
-            </div>
         </div>
+    </div>
+    <div class="card-body">
+        <div class="col mb-5">
+            <a href="{{ route('admin.biodata.create') }}" class="btn btn-success btn-sm float-right">
+                <span><i class="fa fa-plus"></i></span>
+                Tambah
+            </a>
+        </div>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th style="width: 3%">No</th>
+                    <th>Nama</th>
+                    <th>NIK</th>
+                    <th>Kecamatan</th>
+                    <th>Kelurahan</th>
+                    <th>Jabatan</th>
+                    <th style="width: 10%">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Sueb</td>
+                    <td>3515115422650</td>
+                    <td>Wonoayu</td>
+                    <td>Candinegoro</td>
+                    <td>Lurah</td>
+                    <td>
+                        <form action="" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-1">
+                                        <x-button-edit url=""></x-button-edit>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-1">
+                                        <x-button-delete url="" id=""></x-button-delete>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col mb-5">
+        <a href="" class="btn btn-success btn-sm float-right">
+            Simpan
+        </a>
+    </div>
     </div>
 </x-card>
 @endsection

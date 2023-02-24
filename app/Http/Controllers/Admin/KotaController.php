@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\BankRequest;
 use App\Models\Bank;
+use App\Models\Kota;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use Illuminate\Http\Request;
+use App\Http\Requests\BankRequest;
+use App\Http\Controllers\Controller;
 
 class KotaController extends Controller
 {
@@ -16,9 +19,10 @@ class KotaController extends Controller
      */
     public function index()
     {
-        $banks = Bank::latest()->paginate(10);
-        //passing data $bank ke view index
-        return view('admin.bank.index', compact('banks'));
+        $kotas = Kota::latest()->paginate(10);
+        // dd($kelurahans);
+        //passing data $kelurahans ke view index
+        return view('admin.kota.index', compact('kotas'));
     }
 
     /**
@@ -28,7 +32,9 @@ class KotaController extends Controller
      */
     public function create()
     {
-        return view('admin.bank.create');
+        $kotas = Kota::latest()->paginate(10);
+
+        return view('admin.kota.create', compact('kotas'));
     }
 
     /**
@@ -40,13 +46,12 @@ class KotaController extends Controller
     public function store(Request $request)
     {
         // masukan data baru category kedalam database.
-        Bank::create([
-            'name' => $request->name,
-            'biayatf' => $request->biayatf
+        Kota::create([
+            'name' => $request->name
         ]);
 
         // kembali kehalaman admin/category/index dengan membawa toastr.
-        return redirect(route('admin.bank.index'))->with('toast_success', 'Bank Created');
+        return redirect(route('admin.kota.index'))->with('toast_success', 'Kota Created');
     }
 
     /**
@@ -68,9 +73,9 @@ class KotaController extends Controller
      */
     public function edit($id)
     {
-        $bank = Bank::find($id);
+        $kota = Kota::find($id);
         // passing varibel $bank kedalam view.
-        return view('admin.bank.edit', compact('bank'));
+        return view('admin.kota.edit', compact('kota'));
     }
 
     /**
@@ -80,15 +85,15 @@ class KotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bank $bank)
+    public function update(Request $request, Kota $kota)
     {
-        $bank->update([
+        dd($request);
+        $kota->update([
             'name' => $request->name,
-            'biayatf' => $request->biayatf
         ]);
 
-        // kembali kehalaman admin/bank/index dengan membawa toastr.
-        return redirect(route('admin.bank.index'))->with('toast_success', 'Bank Updated');
+        // kembali kehalaman admin/kota/index dengan membawa toastr.
+        return redirect(route('admin.kota.index'))->with('toast_success', 'Kota Updated');
     }
 
     /**
@@ -97,12 +102,12 @@ class KotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bank $bank)
+    public function destroy(Kota $kota)
     {
-        // hapus data jabatan berdasarkan id.
-        $bank->delete();
+        // hapus data kota berdasarkan id.
+        $kota->delete();
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
-        return back()->with('toast_success', 'Jabatan Deleted');
+        return back()->with('toast_success', 'Kota Deleted');
     }
 }
