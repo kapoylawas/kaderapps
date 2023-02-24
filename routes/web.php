@@ -57,4 +57,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/perhitungan', PerhitunganController::class);
 
     Route::resource('/payrol', PayrolController::class)->only('index', 'update', 'create', 'destroy');
+
+    Route::resource('/ppkbd', PpkbdController::class)->only('index', 'update', 'create', 'destroy');
 });
