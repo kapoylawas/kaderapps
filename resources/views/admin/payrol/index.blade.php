@@ -62,10 +62,9 @@
                                     <label for="" class="col-sm-4 col-form-label">Kelompok Jabatan</label>
                                     <div class="col-sm-7">
                                         <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                            <option value="Krian">Lurah</option>
-                                            <option value="Sukodono">Modin</option>
-                                            <option value="Wonoayu">Sekertaris</option>
-                                            <option value="Tarik">Bendahara</option>
+                                            <option value="Kader">Kader</option>
+                                            <option value="PPKBD">PPKBD</option>
+                                            <option value="PPKBD Sub">PPKBD Sub</option>
                                         </select>
                                     </div>
                                 </div>
@@ -84,7 +83,15 @@
                                     <div class="col mb-6">
                                         <a href="{{ route('admin.payrol.create') }}"
                                             class="btn btn-success btn-sm float-left">
-                                            Tampilkan
+                                            Tampilkan Kader
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="col mb-6">
+                                        <a href="{{ route('admin.ppkbd.create') }}"
+                                            class="btn btn-success btn-sm float-right">
+                                            Tampilkan PPKBD
                                         </a>
                                     </div>
                                 </div>
