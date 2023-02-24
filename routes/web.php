@@ -49,11 +49,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
 
     Route::resource('/jabatan', JabatanController::class);
 
-    Route::resource('/sk', SKController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/sk', SKController::class);
 
-    Route::resource('/rekaphonor', RekaphonorController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/rekaphonor', RekaphonorController::class);
 
-    Route::resource('/perhitungan', PerhitunganController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/perhitungan', PerhitunganController::class);
 
-    Route::resource('/payrol', PayrolController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/payrol', PayrolController::class);
 });

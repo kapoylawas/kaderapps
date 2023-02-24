@@ -1,7 +1,6 @@
 @extends('layouts.backend.app', ['title' => 'Data Bank'])
 
 @section('content')
-
 <x-card title="Data Kelurahan/ Desa">
 
     <div class="col-lg-8 col-6">
