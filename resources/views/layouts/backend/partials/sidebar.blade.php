@@ -33,15 +33,26 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active menu-open' : '' }}">
+                    <a href="#"
+                        class="nav-link {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active' : '' }}">
                         <i class="fa fa-globe"></i>
                         <p>
-                        MASTER DATA
-                        <i class="right fas fa-angle-left"></i>
+                            MASTER DATA
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.kota.index') }}"
+                                class="nav-link {{ active('admin.kota.index') }} ">
+                                <i class="fa fa-hospital-o"></i>
+                                <p>
+                                    Data Kota
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.kecamatan.index') }}"
                                 class="nav-link {{ active('admin.kecamatan.index') }} ">
@@ -70,7 +81,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.jabatan.index') }}" class="nav-link {{ active('admin.jabatan.index') }} ">
+                            <a href="{{ route('admin.jabatan.index') }}"
+                                class="nav-link {{ active('admin.jabatan.index') }} ">
                                 <i class="fas fa-sitemap"></i>
                                 <p>
                                     Data Jabatan
@@ -78,7 +90,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.bank.index') }}" class="nav-link {{ active('admin.bank.index') }} ">
+                            <a href="{{ route('admin.bank.index') }}"
+                                class="nav-link {{ active('admin.bank.index') }} ">
                                 <i class="fa fa-bank"></i>
                                 <p>
                                     Data Bank
@@ -111,26 +124,30 @@
                             Data SK
                         </p>
                     </a>
-                </li>            
+                </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.perhitungan.index') }}" class="nav-link {{ active('admin.perhitungan.index') }}">
+                    <a href="{{ route('admin.perhitungan.index') }}"
+                        class="nav-link {{ active('admin.perhitungan.index') }}">
                         <i class="fa fa-calculator"></i>
                         <p>
                             Perhitungan Honor
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active menu-open' : '' }}">
+                    <a href="#"
+                        class="nav-link {{ (request()->is('place-add*')) ||  (request()->is('place-list*'))  ? 'active' : '' }}">
                         <i class="fa fa-files-o"></i>
                         <p>
-                        LAPORAN
-                        <i class="right fas fa-angle-left"></i>
+                            LAPORAN
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.rekaphonor.index') }}" class="nav-link {{ active('admin.rekaphonor.index') }}">
+                            <a href="{{ route('admin.rekaphonor.index') }}"
+                                class="nav-link {{ active('admin.rekaphonor.index') }}">
                                 <i class="fas fa-file"></i>
                                 <p>
                                     Rekap Honor
@@ -138,7 +155,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.payrol.index') }}" class="nav-link {{ active('admin.payrol.index') }}">
+                            <a href="{{ route('admin.payrol.index') }}"
+                                class="nav-link {{ active('admin.payrol.index') }}">
                                 <i class="fas fa-file"></i>
                                 <p>
                                     Payrol

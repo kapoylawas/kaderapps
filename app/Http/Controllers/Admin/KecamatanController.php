@@ -89,6 +89,7 @@ class KecamatanController extends Controller
      */
     public function update(Request $request, Kecamatan $kecamatan)
     {
+        // dd($request);
         $kecamatan->update([
             'name' => $request->name,
             'kota_id' => $request->kota

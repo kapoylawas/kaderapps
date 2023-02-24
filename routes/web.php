@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SKController;
 use App\Http\Controllers\Admin\BankController;
+use App\Http\Controllers\Admin\KotaController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PayrolController;
 use App\Http\Controllers\Admin\BiodataController;
@@ -43,18 +44,17 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/puskesmas', PuskesmasController::class);
     Route::resource('/kelurahan', KelurahanController::class);
     Route::resource('/kecamatan', KecamatanController::class);
+    Route::resource('/kota', KotaController::class);
 
     Route::resource('/biodata', BiodataController::class);
 
     Route::resource('/jabatan', JabatanController::class);
 
-    Route::resource('/sk', SKController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/sk', SKController::class);
 
-    Route::resource('/rekaphonor', RekaphonorController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/rekaphonor', RekaphonorController::class);
 
-    Route::resource('/perhitungan', PerhitunganController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/perhitungan', PerhitunganController::class);
 
     Route::resource('/payrol', PayrolController::class)->only('index', 'update', 'create', 'destroy');
-
-    Route::resource('/ppkbd', PpkbdController::class)->only('index', 'update', 'create', 'destroy');
 });
