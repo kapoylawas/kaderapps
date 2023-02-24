@@ -82,7 +82,7 @@
             </div>
                 <div class="card-body">
                     <div class="col mb-5">
-                        <a href="{{ route('admin.sk.create') }}" class="btn btn-success btn-sm float-right">
+                        <a href="{{ route('admin.biodata.create') }}" class="btn btn-success btn-sm float-right">
                             <span><i class="fa fa-plus"></i></span>
                             Tambah
                         </a>
@@ -96,7 +96,7 @@
                                 <th>Kecamatan</th>
                                 <th>Kelurahan</th>
                                 <th>Jabatan</th>
-                                <th style="width: 7%">Aksi</th>
+                                <th style="width: 10%">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,7 +113,7 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-1">
-                                                    <x-button-edit url=""></x-button-edit>
+                                                    <input class="lg-5" style="width: 3rem" type="checkbox" wire:model="mySelected" value="" >
                                                 </div>
                                             </div>
                                             <div class="form-group">

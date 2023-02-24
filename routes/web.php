@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\KelurahanController;
 use App\Http\Controllers\Admin\PuskesmasController;
 use App\Http\Controllers\Admin\RekaphonorController;
 use App\Http\Controllers\Admin\PerhitunganController;
+use App\Http\Controllers\Admin\PpkbdController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +55,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/perhitungan', PerhitunganController::class)->only('index', 'update', 'create', 'destroy');
 
     Route::resource('/payrol', PayrolController::class)->only('index', 'update', 'create', 'destroy');
+
+    Route::resource('/ppkbd', PpkbdController::class)->only('index', 'update', 'create', 'destroy');
 });

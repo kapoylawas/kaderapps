@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.user.index') }}" class="nav-link">
+                            <a href="{{ route('admin.user.index') }}" class="nav-link {{ active('admin.user.index') }} ">
                                 <i class="fas fa-address-book"></i>
                                 <p>
                                     User

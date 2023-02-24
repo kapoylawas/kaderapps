@@ -2,8 +2,12 @@
 
 @section('content')
 <x-card title="Payrol Kader">
+    <div class="mb-4 row">
+    </div>
     <div class="row">
         <div class="col-lg-12">
+            <div class="mb-1 row">
+            </div>
             <h2 style="text-align: center"> DINAS KESEHATAN </h2>
             <h2 style="text-align: center"> PUSKESMAS CANDI </h2>
             <h3 style="text-align: center"> Jl.M.Ridwan No.05 Gelam - Candi Telp (031)8963973 Sidoarjo 61271 </h3>
@@ -18,6 +22,21 @@
                     <div class="col">
                         <div class="card-body">
                         <div class="col mb-10">
+                            <div class="mb-1 row">
+                                <label for="" class="col-sm-4 col-form-label"> Yang bertanda tangan dibawah ini : </label>
+                            </div>
+                            <div class="mb-1 row">
+                                <label for="" class="col-sm-4 col-form-label"> Kegiatan            : </label>
+                            </div>
+                            <div class="mb-1 row">
+                                <label for="" class="col-sm-4 col-form-label"> Sub Kegiatan        : </label>
+                            </div>
+                            <div class="mb-1 row">
+                                <label for="" class="col-sm-4 col-form-label"> Kode Rekening       : </label>
+                            </div>
+                            <div class="mb-1 row">
+                                <label for="" class="col-sm-4 col-form-label"> Bagian Bulan        : </label>
+                            </div>
                             <table class="table table-bordered text-center">
                                 <thead>
                                     <tr>

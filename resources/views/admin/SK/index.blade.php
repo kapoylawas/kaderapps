@@ -53,7 +53,7 @@
                                         <td>Wonoayu</td>
                                         <td>Candinegoro</td>
                                         <td>081282561</td>
-                                        <td>Lurah</td>
+                                        <td>Kader</td>
                                         <td>
                                             <form action="" method="POST">
                                                 @csrf
