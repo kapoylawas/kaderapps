@@ -28,8 +28,7 @@
                         </div>
                         <div class="card-body">
                             <div class="col mb-5">
-                                <a href="{{ route('admin.sk.create') }}"
-                                    class="btn btn-success btn-sm float-right">
+                                <a href="{{ route('admin.sk.create') }}" class="btn btn-success btn-sm float-right">
                                     <span><i class="fa fa-plus"></i></span>
                                     Tambah
                                 </a>
@@ -43,7 +42,7 @@
                                         <th>Kelurahan</th>
                                         <th>No SK</th>
                                         <th>Kelompok Jabatan</th>
-                                        <th style="width: 10%">Aksi</th>
+                                        <th style="width: 15%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

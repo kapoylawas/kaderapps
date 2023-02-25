@@ -85,9 +85,11 @@ class KotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kota $kota)
+    public function update(Request $request, $id)
     {
-        dd($request);
+        // dd($request->all());
+        $kota = Kota::findOrFail($id);
+        // dd($kota);
         $kota->update([
             'name' => $request->name,
         ]);
@@ -102,11 +104,12 @@ class KotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kota $kota)
+    public function destroy($id)
     {
         // hapus data kota berdasarkan id.
+        // dd($id);
+        $kota = Kota::findOrFail($id);
         $kota->delete();
-
         // kembali kehalaman sebelumnya dengan membawa toastr.
         return back()->with('toast_success', 'Kota Deleted');
     }

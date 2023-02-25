@@ -28,14 +28,14 @@ class PuskesmasRequest extends FormRequest
                 'name' => 'required',
                 'alamat' => 'required',
                 'email' => 'required',
-                'notelp' => 'required',
+                'tlp' => 'required',
             ];
         } elseif (request()->isMethod('PUT')) {
             $data = [
                 'name' => 'required' . $this->id,
                 'alamat' => 'required',
                 'email' => 'required',
-                'notelp' => 'required',
+                'tlp' => 'required',
             ];
         }
 

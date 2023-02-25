@@ -12,7 +12,7 @@
                 <x-input title="Alamat" type="text" name="alamat" placeholder="Enter alamat"
                     :value="$puskesmas->alamat" />
                 <x-input title="Email" type="email" name="email" placeholder="Enter email" :value="$puskesmas->email" />
-                <x-input title="No Telp" type="number" name="notelp" placeholder="Enter no telepon"
+                <x-input title="No Telp" type="number" name="tlp" placeholder="Enter no telepon"
                     :value="$puskesmas->tlp" />
             </x-card-form>
         </form>

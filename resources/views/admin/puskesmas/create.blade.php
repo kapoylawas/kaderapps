@@ -11,7 +11,7 @@
                     :value="old('name')" />
                 <x-input title="Alamat" type="text" name="alamat" placeholder="Enter alamat" :value="old('alamat')" />
                 <x-input title="Email" type="email" name="email" placeholder="Enter email" :value="old('email')" />
-                <x-input title="No Telp" type="number" name="notelp" placeholder="Enter no telepon"
+                <x-input title="No Telp" type="number" name="tlp" placeholder="Enter no telepon"
                     :value="old('notelp')" />
             </x-card-form>
         </form>

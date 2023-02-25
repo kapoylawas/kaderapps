@@ -2,7 +2,7 @@
 
 @section('content')
 <x-card title="Data Puskesmas">
-    <div class="col-lg-8 col-6">
+    <div class="col-lg-10 col-6">
         <div class="container-fluid">
             <div class="ml-5">
                 <div class="col">
@@ -13,15 +13,15 @@
                                 Tambah
                             </a>
                         </div>
-                        <table class="table table-bordered text-center">
-                            <thead>
+                        <table class="table table-bordered">
+                            <thead class="text-center">
                                 <tr>
                                     <th style="width: 5%">No</th>
                                     <th>Nama Puskesmas</th>
                                     <th>Alamat</th>
                                     <th>Email</th>
                                     <th>Telepon</th>
-                                    <th style="width: 20%">Aksi</th>
+                                    <th style="width: 10%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

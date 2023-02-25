@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\SKController;
 use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\KotaController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PpkbdController;
 use App\Http\Controllers\Admin\PayrolController;
 use App\Http\Controllers\Admin\BiodataController;
 use App\Http\Controllers\Admin\JabatanController;
@@ -14,7 +16,6 @@ use App\Http\Controllers\Admin\KelurahanController;
 use App\Http\Controllers\Admin\PuskesmasController;
 use App\Http\Controllers\Admin\RekaphonorController;
 use App\Http\Controllers\Admin\PerhitunganController;
-use App\Http\Controllers\Admin\PpkbdController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ use App\Http\Controllers\Admin\PpkbdController;
 |
 */
 
+
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -37,7 +39,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
+    Route::put('/test/{kota:id}', 'App\Http\Controllers\TestController@update')->name('u.kota');
+
+    Route::resource('/user', UserController::class);
 
     Route::resource('/bank', BankController::class);
 
@@ -56,7 +60,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
 
     Route::resource('/perhitungan', PerhitunganController::class);
 
-    Route::resource('/payrol', PayrolController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/payrol', PayrolController::class);
 
-    Route::resource('/ppkbd', PpkbdController::class)->only('index', 'update', 'create', 'destroy');
+    Route::resource('/ppkbd', PpkbdController::class);
 });

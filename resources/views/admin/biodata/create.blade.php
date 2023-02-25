@@ -48,16 +48,16 @@
     <div class="modal fade" id="modal-default-tambah">
         <div class="col-lg-14">
             <div class="modal-dialog">
-                <form action="{{ route('admin.biodata.store') }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Tambah Data Kader</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tambah Data Kader</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('admin.biodata.store') }}" method="POST">
+                        @csrf
+                        @method('PUT')
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <label for="" class="col-sm-2 col-form-label">Nama</label>
@@ -203,8 +203,8 @@
                                 Simpan
                             </button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

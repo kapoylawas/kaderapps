@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-card title="Data Kelurahan">
+<x-card title="Data Kota">
 
     <div class="col-lg-8 col-6">
         <div class="container-fluid">

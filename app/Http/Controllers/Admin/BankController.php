@@ -86,7 +86,7 @@ class BankController extends Controller
             'name' => $request->name,
             'biayatf' => $request->biayatf
         ]);
-
+        // dd($bank);
         // kembali kehalaman admin/bank/index dengan membawa toastr.
         return redirect(route('admin.bank.index'))->with('toast_success', 'Bank Updated');
     }

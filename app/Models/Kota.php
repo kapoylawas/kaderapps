@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Kota extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'id';
     protected $fillable = ['name'];
 }

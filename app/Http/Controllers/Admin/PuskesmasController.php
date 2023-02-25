@@ -44,7 +44,7 @@ class PuskesmasController extends Controller
             'name' => $request->name,
             'alamat' => $request->alamat,
             'email' => $request->email,
-            'tlp' => $request->notelp,
+            'tlp' => $request->tlp,
         ]);
 
         // kembali kehalaman admin/category/index dengan membawa toastr.
@@ -82,18 +82,18 @@ class PuskesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PuskesmasRequest $request, Puskesmas $puskesmas)
+    public function update(PuskesmasRequest $request, $id)
     {
-        // dd($request);
-
+        // dd($request->all());
+        $puskesmas = Puskesmas::findOrFail($id);
         $puskesmas->update([
             'name' => $request->name,
             'alamat' => $request->alamat,
             'email' => $request->email,
-            'tlp' => $request->notelp
+            'tlp' => $request->tlp
         ]);
-        dd($puskesmas);
-        // kembali kehalaman admin/bank/index dengan membawa toastr.
+        // dd($puskesmas);
+        // kembali kehalaman admin/puskesmas/index dengan membawa toastr.
         return redirect(route('admin.puskesmas.index'))->with('toast_success', 'Puskesmas Updated');
         // dd($puskesmas);
     }
@@ -104,10 +104,11 @@ class PuskesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Puskesmas $request)
+    public function destroy($id)
     {
         // hapus data jabatan berdasarkan id.
-        $request->delete();
+        $puskesmas = Puskesmas::findOrFail($id);
+        $puskesmas->delete();
 
         // kembali kehalaman sebelumnya dengan membawa toastr.
         return back()->with('toast_success', 'Puskesmas Deleted');
