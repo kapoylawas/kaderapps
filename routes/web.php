@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\KelurahanController;
 use App\Http\Controllers\Admin\PuskesmasController;
 use App\Http\Controllers\Admin\RekaphonorController;
 use App\Http\Controllers\Admin\PerhitunganController;
+use App\Http\Controllers\Kecamatan\DashboardController as KecamatanDashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +38,18 @@ Route::get('/', function () {
 
 Route::post('/biodatas', [\App\Http\Controllers\Admin\BiodataController::class, 'simpan'])->name('admin.bio.simpan');
 // admin route
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'role:admin|kecamatan']], function () {
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     // Route::put('/test/{kota:id}', 'App\Http\Controllers\TestController@update')->name('u.kota');
+
+     // admin user route
+     Route::controller(UserController::class)->as('user.')->group(function(){
+        Route::get('/user/profile', 'profile')->name('profile');
+        Route::put('/user/profile/{user}', 'profileUpdate')->name('profile.update');
+        Route::put('/user/profile/password/{user}', 'profile')->name('profile.password');
+    });
 
     Route::resource('/user', UserController::class);
     Route::resource('/bank', BankController::class);
@@ -56,4 +65,13 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/perhitungan', PerhitunganController::class);
     Route::resource('/payrol', PayrolController::class);
     Route::resource('/ppkbd', PpkbdController::class);
+    Route::post('/biodatas', [\App\Http\Controllers\Admin\BiodataController::class, 'store'])->name('bio.store');
 });
+
+
+// member route
+Route::group(['as' => 'kecamatan.', 'prefix' => 'kecamatan', 'middleware' => ['auth', 'role:kecamatan|author']], function(){
+    // member dashboard route
+    Route::get('/dashboard', KecamatanDashboardController::class)->name('dashboard');
+});
+
