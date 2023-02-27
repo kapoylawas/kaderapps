@@ -14,13 +14,13 @@
                                 Tambah
                             </a>
                         </div>
-                        <table class="table table-bordered text-center">
-                            <thead>
+                        <table class="table table-bordered">
+                            <thead class="text-center">
                                 <tr>
                                     <th style="width: 5%">No</th>
                                     <th>Nama Kelurahan / Desa</th>
                                     <th>Nama Kecamatan</th>
-                                    <th style="width: 20%">Aksi</th>
+                                    <th style="width: 15%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

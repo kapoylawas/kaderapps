@@ -54,6 +54,9 @@
                 data-target="#modal-default-tambah">
                 <i class="fas fa-plus"></i> Tambah
             </button>
+            <a href="{{ route('admin.sk.create') }}" class="btn btn-danger btn-sm mb-2 mr-2 float-right"> <i
+                    class="fas fa-arrow-left"></i> Kembali
+            </a>
         </div>
     </div>
 
@@ -67,9 +70,9 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('admin.biodata.store') }}" method="POST">
+                    <form action="{{ route('admin.biodata.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
+                        {{-- @method('POST') --}}
                         <div class="modal-body">
                             <div class="mb-3 row">
                                 <label for="" class="col-sm-2 col-form-label">Nama</label>
@@ -218,8 +221,7 @@
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button class="btn btn-success" type="submit">
-                                Simpan
+                            <button class="btn btn-success" type="submit" value="">Simpan
                             </button>
                         </div>
                     </form>

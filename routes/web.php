@@ -34,6 +34,7 @@ Route::get('/', function () {
 });
 
 
+Route::post('/biodatas', [\App\Http\Controllers\Admin\BiodataController::class, 'simpan'])->name('admin.bio.simpan');
 // admin route
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     // admin dashboard route
@@ -48,6 +49,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/kecamatan', KecamatanController::class);
     Route::resource('/kota', KotaController::class);
     Route::resource('/biodata', BiodataController::class);
+
     Route::resource('/jabatan', JabatanController::class);
     Route::resource('/sk', SKController::class);
     Route::resource('/rekaphonor', RekaphonorController::class);

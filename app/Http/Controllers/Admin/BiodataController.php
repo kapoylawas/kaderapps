@@ -51,36 +51,73 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'foto' => 'required|image',
-            'ktp' => 'required',
-            'tabungan' => 'required'
-        ]);
+        // $biodata = new Biodata();
+        // $biodata->name = $request->input('name');
+        // $biodata->nik = $request->input('nik');
+        // // $biodata->tempatLahir = $request->input('tampatLahir');
+        // $biodata->tglLahir = $request->input('tglLahir');
+        // $biodata->alamat = $request->input('alamat');
+        // $biodata->id_kota = $request->input('kota');
+        // $biodata->id_kecamatan = $request->input('kecamatan');
+        // $biodata->id_kelurahan = $request->input('kelurahan');
+        // $biodata->nohp = $request->input('nohp');
+        // $biodata->norek = $request->input('norek');
+        // $biodata->id_bank = $request->input('bank');
+        // $biodata->foto = NULL;
+        // $biodata->filektp = null;
+        // $biodata->filebukutabungan = null;
 
-        $ext = $request->file('foto')->extension();
-        $final_name = time() . '.' . $ext;
-        $request->file('foto')->move(public_path('images/'), $final_name);
-        $request->file('ktp')->move(public_path('ktp/'), $final_name);
-        $request->file('tabungan')->move(public_path('tabungan/'), $final_name);
-        dd($request);
+        // $biodata->save();
 
         Biodata::create([
-            'name' => $request,
-            'nik' => $request,
-            'tempatLahir' => $request,
-            'tglLahir' => $request,
-            'alamat' => $request,
-            'id_kota' => $request,
-            'id_kecamatan' => $request,
-            'id_kelurahan' => $request,
-            'nohp' => $request,
-            'norek' => $request,
-            'bank' => $request,
-            'nohp' => $request,
-            'foto' => $final_name,
-            'tabungan' => $final_name,
-            'ktp' => $final_name,
+            'name' => $request->name,
+            'nik' => $request->nik,
+            'tempatLahir' => $request->tempatLahir,
+            'tglLahir' => $request->tglLahir,
+            'alamat' => $request->alamat,
+            'id_kota' => $request->kota,
+            'id_kecamatan' => $request->kecamatan,
+            'id_kelurahan' => $request->kelurahan,
+            'nohp' => $request->nohp,
+            'norek' => $request->norek,
+            'id_bank' => $request->bank,
+            'foto' => $request->foto,
+            'filebukutabungan' => $request->tabungan,
+            'filektp' => $request->ktp,
         ]);
+    }
+    public function simpan(Request $request)
+    {
+        // $request->validate([
+        //     'foto' => 'required|image',
+        //     'ktp' => 'required',
+        //     'tabungan' => 'required'
+        // ]);
+
+        // $ext = $request->file('foto')->extension();
+        // $final_name = time() . '.' . $ext;
+        // $request->file('foto')->move(public_path('images/'), $final_name);
+        // $request->file('ktp')->move(public_path('ktp/'), $final_name);
+        // $request->file('tabungan')->move(public_path('tabungan/'), $final_name);
+        dd($request);
+
+        // Biodata::create([
+        //     'name' => $request,
+        //     'nik' => $request,
+        //     'tempatLahir' => $request,
+        //     'tglLahir' => $request,
+        //     'alamat' => $request,
+        //     'id_kota' => $request,
+        //     'id_kecamatan' => $request,
+        //     'id_kelurahan' => $request,
+        //     'nohp' => $request,
+        //     'norek' => $request,
+        //     'bank' => $request,
+        //     'nohp' => $request,
+        //     'foto' => $final_name,
+        //     'tabungan' => $final_name,
+        //     'ktp' => $final_name,
+        // ]);
     }
 
     /**

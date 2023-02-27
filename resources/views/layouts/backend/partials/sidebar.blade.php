@@ -16,7 +16,7 @@
         </div>
 
         <div class="text-center">
-            <span class="brand-text font-weight-bold">SIM KADER</span>
+            <span class="brand-text font-weight-bold">SIKaP</span>
             <p class="brand-text">KAB. SIDOARJO</p>
         </div>
     </a>

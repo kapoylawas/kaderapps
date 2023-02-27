@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Biodata;
+use App\Models\Jabatan;
 
 class SKController extends Controller
 {
@@ -17,7 +21,7 @@ class SKController extends Controller
         return view('admin.SK.index');
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +29,9 @@ class SKController extends Controller
      */
     public function create()
     {
-        return view('admin.SK.input');
+        $biodatas = Biodata::latest()->paginate(10);
+        $jabatans = Jabatan::latest()->paginate(10);
+        return view('admin.SK.input', compact('jabatans', 'biodatas'));
     }
 
     /**

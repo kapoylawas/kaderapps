@@ -4,7 +4,7 @@
 
 <x-card title="Data Kota">
 
-    <div class="col-lg-8 col-6">
+    <div class="col-lg-6 col-6">
         <div class="container-fluid">
             <div class="ml-5">
                 <div class="col">
@@ -15,8 +15,8 @@
                                 Tambah
                             </a>
                         </div>
-                        <table class="table table-bordered text-center">
-                            <thead>
+                        <table class="table table-bordered">
+                            <thead class="text-center">
                                 <tr>
                                     <th style="width: 5%">No</th>
                                     <th>Kota</th>
