@@ -4,9 +4,9 @@
 {{-- <x-card title="Biodata dan History Jabatan"> --}}
     <div class="row">
         <div class="col-10  ml-4">
-            <div class="col-3">
+            {{-- <div class="col-3">
                 <x-input-search placeholder="Search kader.." :url="route('admin.user.index')" />
-            </div>
+            </div> --}}
             <x-card class="col-8" title="Data User">
                 <table class="table">
                     <thead>
@@ -17,7 +17,7 @@
                             <th>Alamat</th>
                             <th>Kecamatan</th>
                             <th>Kelurahan</th>
-                            <th>Aksi</th>
+                            {{-- <th>Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +29,19 @@
                             <td>{{ $biodata->alamat }}</td>
                             <td>{{ $biodata->kecamatans->name }}</td>
                             <td>{{ $biodata->kelurahans->name }}</td>
-                            <td>
+                            {{-- <td>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-1">
+                                                <input class="lg-5" style="width: 3rem" type="checkbox"
+                                                    wire:model="mySelected" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td> --}}
                         </tr>
                         @endforeach
                     </tbody>
@@ -180,6 +192,13 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="" class="col-sm-2 col-form-label">Upload Foto</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control form-control-md" id="foto" name="foto"
+                                        value="">
                                 </div>
                             </div>
                             <div class="mb-3 row">

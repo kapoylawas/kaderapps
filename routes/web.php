@@ -39,28 +39,19 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::put('/test/{kota:id}', 'App\Http\Controllers\TestController@update')->name('u.kota');
+    // Route::put('/test/{kota:id}', 'App\Http\Controllers\TestController@update')->name('u.kota');
 
     Route::resource('/user', UserController::class);
-
     Route::resource('/bank', BankController::class);
-
     Route::resource('/puskesmas', PuskesmasController::class);
     Route::resource('/kelurahan', KelurahanController::class);
     Route::resource('/kecamatan', KecamatanController::class);
     Route::resource('/kota', KotaController::class);
-
     Route::resource('/biodata', BiodataController::class);
-
     Route::resource('/jabatan', JabatanController::class);
-
     Route::resource('/sk', SKController::class);
-
     Route::resource('/rekaphonor', RekaphonorController::class);
-
     Route::resource('/perhitungan', PerhitunganController::class);
-
     Route::resource('/payrol', PayrolController::class);
-
     Route::resource('/ppkbd', PpkbdController::class);
 });

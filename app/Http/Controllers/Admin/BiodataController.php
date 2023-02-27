@@ -51,41 +51,18 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'nik' => 'required',
-        //     'tempatLahir' => 'required',
-        //     'tglLahir' => 'required',
-        //     'alamat' => 'required',
-        //     'kota' => 'required',
-        //     'kecamatan' => 'required',
-        //     'kelurahan' => 'required',
-        //     'nohp' => 'required',
-        //     'norek' => 'required',
-        //     'bank' => 'required',
-        //     'nohp' => 'required',
-        //     'tabungan' => 'required',
-        //     'ktp' => 'required',
-        // ]);
-        // dd($request);
-        $tabungan = $request->file('tabungan');
-        $nama_tabungan =
-            $request->file('photo')->getClientOriginalName();
+        $request->validate([
+            'foto' => 'required|image',
+            'ktp' => 'required',
+            'tabungan' => 'required'
+        ]);
 
-        $tujuan_upload = 'public_path/tabungan';
-        $tabungan->move($tujuan_upload, $nama_tabungan);
-
-        $ktp = $request->file('ktp');
-        $nama_ktp = time() . "_" . $ktp->getClientOriginalName();
-
-        $tujuan_upload = 'public_path/ktp';
-        $ktp->move($tujuan_upload, $nama_ktp);
-
-        $foto = $request->file('foto');
-        $nama_foto = time() . "_" . $foto->getClientOriginalName();
-
-        $tujuan_upload = 'public_path/images';
-        $foto->move($tujuan_upload, $nama_foto);
+        $ext = $request->file('foto')->extension();
+        $final_name = time() . '.' . $ext;
+        $request->file('foto')->move(public_path('images/'), $final_name);
+        $request->file('ktp')->move(public_path('ktp/'), $final_name);
+        $request->file('tabungan')->move(public_path('tabungan/'), $final_name);
+        dd($request);
 
         Biodata::create([
             'name' => $request,
@@ -100,8 +77,9 @@ class BiodataController extends Controller
             'norek' => $request,
             'bank' => $request,
             'nohp' => $request,
-            'tabungan' => $nama_tabungan,
-            'ktp' => $nama_ktp,
+            'foto' => $final_name,
+            'tabungan' => $final_name,
+            'ktp' => $final_name,
         ]);
     }
 

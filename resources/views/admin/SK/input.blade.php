@@ -6,7 +6,7 @@
         <div class="col">
             <div class="col-lg-7">
                 <div class="container-fluid">
-                    <div class="col mb-5 mt-3 ml-6">
+                    <div class="col mb-1 mt-3 ml-6">
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-body">
@@ -80,60 +80,65 @@
                     </div>
                 </div>
             </div>
-                <div class="card-body">
-                    <div class="col mb-5">
-                        <a href="{{ route('admin.biodata.create') }}" class="btn btn-success btn-sm float-right">
-                            <span><i class="fa fa-plus"></i></span>
-                            Tambah
-                        </a>
-                    </div>
-                    <table class="table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th style="width: 3%">No</th>
-                                <th>Nama</th>
-                                <th>NIK</th>
-                                <th>Kecamatan</th>
-                                <th>Kelurahan</th>
-                                <th>Jabatan</th>
-                                <th style="width: 10%">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Sueb</td>
-                                <td>3515115422650</td>
-                                <td>Wonoayu</td>
-                                <td>Candinegoro</td>
-                                <td>Lurah</td>
-                                <td>
+            <div class="card-body lg-8">
+                <div class="col-3">
+                    <x-input-search placeholder="Search kader.." :url="route('admin.user.index')" />
+                </div>
+                <div class="col mb-5">
+                    <a href="{{ route('admin.biodata.create') }}" class="btn btn-success btn-sm float-right">
+                        <span><i class="fa fa-plus"></i></span>
+                        Tambah
+                    </a>
+                </div>
+                <table class="table table-bordered text-center mt-2">
+                    <thead>
+                        <tr>
+                            <th style="width: 3%">No</th>
+                            <th>Nama</th>
+                            <th>NIK</th>
+                            <th>Kecamatan</th>
+                            <th>Kelurahan</th>
+                            <th>Jabatan</th>
+                            <th style="width: 10%">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Sueb</td>
+                            <td>3515115422650</td>
+                            <td>Wonoayu</td>
+                            <td>Candinegoro</td>
+                            <td>Lurah</td>
+                            <td>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-1">
+                                            <input class="lg-5" style="width: 3rem" type="checkbox"
+                                                wire:model="mySelected" value="">
+                                        </div>
+                                    </div>
                                     <form action="" method="POST">
                                         @csrf
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <div class="col-1">
-                                                    <input class="lg-5" style="width: 3rem" type="checkbox" wire:model="mySelected" value="" >
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-1">
-                                                    <x-button-delete url="" id=""></x-button-delete>
-                                                </div>
+                                        <div class="form-group">
+                                            <div class="col-1">
+                                                <x-button-delete url="" id=""></x-button-delete>
                                             </div>
                                         </div>
                                     </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-lg-12 mb-5 mt-2">
+                    <a href="" class="btn btn-success btn-md float-right">
+                        Simpan
+                    </a>
                 </div>
-            <div class="col-lg-12 mb-5 ">
-                <a href="" class="btn btn-success btn-sm float-right">
-                    Simpan
-                </a>
             </div>
         </div>
     </div>
 </x-card>
+
 @endsection
