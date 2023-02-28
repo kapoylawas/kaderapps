@@ -6,7 +6,7 @@
         <div class="col">
             <div class="container-fluid">
                 <div class="card">
-                    <div class="col">
+                    <div class="col-lg-10">
                         <div class="card-body">
                             <div class="mt-2 row">
                                 <label for="bentuk" class="col-md-1 col-form-label">Filter</label>
@@ -26,15 +26,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body md-8">
                             <div class="col mb-5">
                                 <a href="{{ route('admin.sk.create') }}" class="btn btn-success btn-sm float-right">
                                     <span><i class="fa fa-plus"></i></span>
                                     Tambah
                                 </a>
                             </div>
-                            <table class="table table-bordered text-center">
-                                <thead>
+                            <table class="table table-bordered">
+                                <thead class="text-center">
                                     <tr>
                                         <th style="width: 4%">No</th>
                                         <th>Tahun</th>
@@ -42,7 +42,7 @@
                                         <th>Kelurahan</th>
                                         <th>No SK</th>
                                         <th>Kelompok Jabatan</th>
-                                        <th style="width: 15%">Aksi</th>
+                                        <th style="width: 14%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +58,7 @@
                                                 @csrf
                                                 <div class="row">
                                                     <div class="form-group">
-                                                        <div class="col-1">
+                                                        <div class="col">
                                                             <a type="submit" href="{{ route('admin.sk.create') }}"
                                                                 class="btn btn-sm btn-primary ms-auto" value="">
                                                                 <i class="fa fa-eye"></i>
@@ -66,12 +66,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-1">
+                                                        <div class="col">
                                                             <x-button-edit url=""></x-button-edit>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="col-1">
+                                                        <div class="col">
                                                             <x-button-delete url="" id=""></x-button-delete>
                                                         </div>
                                                     </div>

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Biodata;
 use App\Models\Jabatan;
+use App\Models\Riwayatjabatan;
+use App\Models\Sk;
 
 class SKController extends Controller
 {
@@ -18,6 +20,7 @@ class SKController extends Controller
      */
     public function index()
     {
+        
         return view('admin.SK.index');
     }
 
@@ -42,7 +45,25 @@ class SKController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        // masukan data baru sks kedalam database.
+        $sk = Sk::create([
+            'nosk' => $request->sk,
+            'tglskp' => $request->tgl,
+            'file' => 'belum bisa upload',
+        ]);
+        // masukan data baru sks kedalam database.
+        Riwayatjabatan::create([
+            'tahun' => $request->tahun,
+            'id_jabatan' => $request->jabatan,
+            'id_sk' => $sk->id,
+            'biodata_id' => $request->id,
+            // 'id_kelurahan' => $request->kelurahan,
+            // 'id_kecamatan' => $request->kecamatan,
+        ]);
+
+        // kembali kehalaman admin/category/index dengan membawa toastr.
+        return redirect(route('admin.sk.index'))->with('toast_success', 'SK Created');
     }
 
     /**

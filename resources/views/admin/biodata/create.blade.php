@@ -7,11 +7,11 @@
             {{-- <div class="col-3">
                 <x-input-search placeholder="Search kader.." :url="route('admin.user.index')" />
             </div> --}}
-            <x-card class="col-8" title="Data User">
+            <x-card class="col-8" title="Data Kader">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th style="width: 10px">#</th>
+                            <th style="width: 10px">No</th>
                             <th>Nama</th>
                             <th>NIK</th>
                             <th>Alamat</th>

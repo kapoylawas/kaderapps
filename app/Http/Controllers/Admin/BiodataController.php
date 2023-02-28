@@ -85,6 +85,8 @@ class BiodataController extends Controller
             'filebukutabungan' => $request->tabungan,
             'filektp' => $request->ktp,
         ]);
+        //redirect ke halaman create biodata dengan membawa toastr
+        return redirect(route('admin.biodata.create'))->with('toast_success', 'Data Created');
     }
     public function simpan(Request $request)
     {

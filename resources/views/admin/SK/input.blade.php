@@ -15,15 +15,16 @@
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">Tahun</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-control-md" id="" name=""
-                                                    value="{{ date('Y') }}" readonly>
+                                                <input type="text" class="form-control form-control-md" id="tahun"
+                                                    name="tahun" value="{{ date('Y') }}" readonly>
                                             </div>
                                         </div>
                                         <div class="mb-2 row">
                                             <label for="" class="col-sm-2 col-form-label">Kelompok Jabatan</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                                    <option value="Krian">--Pilih Jabatan--</option>
+                                                <select class="form-control form-control-md" name="jabatan"
+                                                    id="jabatan">
+                                                    <option value="">--Pilih Jabatan--</option>
                                                     @foreach ($jabatans as $jabatan)
                                                     <option value="{{ $jabatan->id }}">{{ $jabatan->name }}</option>
                                                     @endforeach
@@ -33,22 +34,22 @@
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">No SK</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-control-md" id="" name=""
-                                                    value="">
+                                                <input type="text" class="form-control form-control-md" id="sk"
+                                                    name="sk" value="">
                                             </div>
                                         </div>
                                         <div class="mb-4 row">
                                             <label for="" class="col-sm-2 col-form-label">Tanggal SK</label>
                                             <div class="col-sm-6">
-                                                <input type="date" class="form-control form-control-md" id="" name=""
-                                                    value="">
+                                                <input type="date" class="form-control form-control-md" id="tgl"
+                                                    name="tgl" value="">
                                             </div>
                                         </div>
                                         <div class="mb-2 row">
                                             <label for="" class="col-sm-2 col-form-label">Upload File SK</label>
                                             <div class="col-sm-6">
-                                                <input type="file" class="form-control form-control-md" id="" name=""
-                                                    value="">
+                                                <input type="file" class="form-control form-control-md" id="filesk" `
+                                                    name="filesk" value="">
                                             </div>
                                         </div>
 
@@ -91,8 +92,8 @@
                                                             <div class="row">
                                                                 <div class="form-group">
                                                                     <div class="col-1">
-                                                                        <input class="lg-5" style="width: 3rem"
-                                                                            type="checkbox" wire:model="mySelected"
+                                                                        <input class="lg-5" type="checkbox" name="id"
+                                                                            wire:model="mySelected"
                                                                             value="{{ $biodata->id }}">
                                                                     </div>
                                                                 </div>
