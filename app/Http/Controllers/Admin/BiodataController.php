@@ -21,8 +21,12 @@ class BiodataController extends Controller
      */
     public function index()
     {
+        $kotas = Kota::latest()->paginate(10);
+        $kecamatans = Kecamatan::latest()->paginate(10);
+        $kelurahans = Kelurahan::latest()->paginate(10);
+        $banks = Bank::latest()->paginate(10);
         $biodatas = Biodata::with('kecamatans', 'kelurahans')->get();
-        return view('admin.biodata.index', compact('biodatas'));
+        return view('admin.biodata.index', compact('biodatas', 'kotas', 'kecamatans', 'kelurahans', 'banks'));
     }
 
 
@@ -130,7 +134,8 @@ class BiodataController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd($id);
+
     }
 
     /**
@@ -141,7 +146,14 @@ class BiodataController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
+        $kotas = Kota::latest()->paginate(10);
+        $kecamatans = Kecamatan::latest()->paginate(10);
+        $kelurahans = Kelurahan::latest()->paginate(10);
+        $banks = Bank::latest()->paginate(10);
+        $biodata = Biodata::find($id)->with('kecamatans', 'kelurahans')->get();
+        dd($biodata);
+        return view('admin.biodata.edit', compact('biodata', 'kotas', 'kecamatans', 'kelurahans', 'banks'));
     }
 
     /**
@@ -164,6 +176,10 @@ class BiodataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd($biodata);
+        $biodata = Biodata::findOrFail($id);
+        $biodata->delete();
+        // kembali kehalaman sebelumnya dengan membawa toastr.
+        return back()->with('toast_success', 'Biodata Deleted');
     }
 }

@@ -25,15 +25,8 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            {{-- <div class="col mb-5">
-                                <a href="{{ route('admin.biodata.create') }}"
-                                    class="btn btn-success btn-sm float-right">
-                                    <span><i class="fa fa-plus"></i></span>
-                                    Tambah
-                                </a>
-                            </div> --}}
-                            <table class="table table-bordered text-center">
-                                <thead>
+                            <table class="table table-bordered">
+                                <thead class="text-center">
                                     <tr>
                                         <th style="width: 5%">No</th>
                                         <th>NIK</th>
@@ -42,13 +35,11 @@
                                         <th>Kecamatan</th>
                                         <th>Kelurahan</th>
                                         <th>No HP</th>
-                                        <th style="width: 12%">Aksi</th>
+                                        <th style="width: 11%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($biodatas as $i=>$biodata)
-
-
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td>{{ $biodata->nik }}</td>
@@ -58,29 +49,33 @@
                                         <td>{{ $biodata->kelurahans->name }}</td>
                                         <td>{{ $biodata->nohp }}</td>
                                         <td>
-                                            <form action="" method="POST">
-                                                @csrf
-                                                <div class="row">
-                                                    <div class="form-group">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <form action="" method="POST">
+                                                        @csrf
                                                         <div class="col-1">
-                                                            <a type="submit" href="{{ route('admin.biodata.create') }}"
+                                                            <a type="submit"
+                                                                href="{{ route('admin.biodata.show',$biodata->id) }}"
                                                                 class="btn btn-sm btn-primary ms-auto" value="">
                                                                 <i class="fa fa-eye"></i>
                                                             </a>
                                                         </div>
-                                                    </div>
-                                                    {{-- <div class="form-group">
-                                                        <div class="col-1">
-                                                            <x-button-edit url=""></x-button-edit>
-                                                        </div>
-                                                    </div> --}}
-                                                    <div class="form-group">
-                                                        <div class="col-1">
-                                                            <x-button-delete url="" id=""></x-button-delete>
-                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-1">
+                                                        <x-button-edit
+                                                            url="{{ route('admin.biodata.edit',$biodata->id) }}">
+                                                        </x-button-edit>
                                                     </div>
                                                 </div>
-                                            </form>
+                                                <div class="form-group">
+                                                    <div class="col-1">
+                                                        <x-button-delete :id="$biodata->id"
+                                                            :url="route('admin.biodata.destroy', $biodata->id)" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
