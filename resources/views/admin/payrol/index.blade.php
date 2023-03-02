@@ -21,6 +21,7 @@
                                     <label for="" class="col-sm-4 col-form-label">Tahun</label>
                                     <div class="col-sm-7">
                                         <select class="form-control form-control-md" name="bentuk" id="bentuk">
+                                            <option value="">--Pilih Tahun--</option>
                                             <option value="2020">2020</option>
                                             <option value="2021">2021</option>
                                             <option value="2022">2022</option>
@@ -32,6 +33,7 @@
                                     <label for="" class="col-sm-4 col-form-label">Bulan</label>
                                     <div class="col-sm-7">
                                         <select class="form-control form-control-md" name="bentuk" id="bentuk">
+                                            <option value="">--Pilih Bulan--</option>
                                             <option value="Januari">Januari</option>
                                             <option value="Februari">Februari</option>
                                             <option value="Maret">Maret</option>
@@ -50,33 +52,52 @@
                                 <div class="mb-4 row">
                                     <label for="" class="col-sm-4 col-form-label">Kecamatan</label>
                                     <div class="col-sm-7">
-                                        <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                            <option value="Krian">Krian</option>
-                                            <option value="Sukodono">Sukodono</option>
-                                            <option value="Wonoayu">Wonoayu</option>
-                                            <option value="Tarik">Tarik</option>
+                                        <select class="form-control" name="kecamatan">
+                                            <option value="">--Pilih Kecamatan--</option>
+                                            @foreach ($kecamatans as $kecamatan)
+                                            <option class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan"
+                                                value="{{ $kecamatan->id }}">
+                                                {{ $kecamatan->name }}
+                                            </option>
+                                            @endforeach
                                         </select>
+                                        @error('kecamatan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                    </div>
+                                    @enderror
                                     </div>
                                 </div>
                                 <div class="mb-4 row">
                                     <label for="" class="col-sm-4 col-form-label">Kelompok Jabatan</label>
                                     <div class="col-sm-7">
-                                        <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                            <option value="Kader">Kader</option>
-                                            <option value="PPKBD">PPKBD</option>
-                                            <option value="PPKBD Sub">PPKBD Sub</option>
+                                        <select class="form-control" name="jabatan">
+                                            <option value="">--Pilih Jabatan--</option>
+                                            @foreach ($jabatans as $jabatan)
+                                            <option value="{{ $jabatan->id }}">{{ $jabatan->name }}</option>
+                                            @endforeach
                                         </select>
+                                        @error('jabatan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="" class="col-sm-4 col-form-label">Puskesmas</label>
                                     <div class="col-sm-7">
-                                        <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                            <option value="Krian">Lurah</option>
-                                            <option value="Sukodono">Modin</option>
-                                            <option value="Wonoayu">Sekertaris</option>
-                                            <option value="Tarik">Bendahara</option>
+                                        <select class="form-control" name="puskesmas">
+                                            <option value="">--Pilih Puskesmas--</option>
+                                            @foreach ($puskesmas as $puskesmas)
+                                            <option value="{{ $puskesmas->id }}">{{ $puskesmas->name }}</option>
+                                            @endforeach
                                         </select>
+                                        @error('puskesmas')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -86,8 +107,6 @@
                                             Tampilkan Kader
                                         </a>
                                     </div>
-                                </div>
-                                <div class="card-body">
                                     <div class="col mb-6">
                                         <a href="{{ route('admin.ppkbd.create') }}"
                                             class="btn btn-success btn-sm float-right">

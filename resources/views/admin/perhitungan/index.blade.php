@@ -15,6 +15,7 @@
                                         <label for="" class="col-sm-4 col-form-label">Tahun</label>
                                         <div class="col-sm-7">
                                             <select class="form-control form-control-md" name="bentuk" id="bentuk">
+                                                <option value="">--Pilih Tahun--</option>
                                                 <option value="2020">2020</option>
                                                 <option value="2021">2021</option>
                                                 <option value="2022">2022</option>
@@ -26,33 +27,47 @@
                                         <label for="" class="col-sm-4 col-form-label">Tribulan Gaji</label>
                                         <div class="col-sm-7">
                                             <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                                <option value="-">-</option>
-                                                <option value="-">-</option>
-                                                <option value="-">-</option>
-                                                <option value="-">-</option>
+                                                <option value="">--Pilih Tribulan Gaji--</option>
+                                                <option value=""> Januari-Maret </option>
+                                                <option value=""> April-Juni </option>
+                                                <option value=""> Juli-September </option>
+                                                <option value=""> Oktober-Desember </option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="mb-4 row">
                                         <label for="" class="col-sm-4 col-form-label">Kecamatan</label>
                                         <div class="col-sm-7">
-                                            <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                                <option value="Krian">Krian</option>
-                                                <option value="Sukodono">Sukodono</option>
-                                                <option value="Wonoayu">Wonoayu</option>
-                                                <option value="Tarik">Tarik</option>
+                                            <select class="form-control" name="kecamatan">
+                                                <option value="">--Pilih Kecamatan--</option>
+                                                @foreach ($kecamatans as $kecamatan)
+                                                <option class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan"
+                                                    value="{{ $kecamatan->id }}">
+                                                    {{ $kecamatan->name }}
+                                                </option>
+                                                @endforeach
                                             </select>
+                                            @error('kecamatan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="mb-2 row">
                                         <label for="" class="col-sm-4 col-form-label">Kelompok Jabatan</label>
                                         <div class="col-sm-7">
-                                            <select class="form-control form-control-md" name="bentuk" id="bentuk">
-                                                <option value="Krian">Lurah</option>
-                                                <option value="Sukodono">Modin</option>
-                                                <option value="Wonoayu">Sekertaris</option>
-                                                <option value="Tarik">Bendahara</option>
+                                            <select class="form-control" name="jabatan">
+                                                <option value="">--Pilih Jabatan--</option>
+                                                @foreach ($jabatans as $jabatan)
+                                                <option value="{{ $jabatan->id }}">{{ $jabatan->name }}</option>
+                                                @endforeach
                                             </select>
+                                            @error('jabatan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -137,7 +152,7 @@
                     <td>351514855426</td>
                     <td>Kelurahan</td>
                     <td>2023</td>
-                    <td>4.500.000</td>
+                    <td>Januari-Maret</td>
                     <td>Candi</td>
                     <td>Sekertaris</td>
                     <td>4.000.000</td>

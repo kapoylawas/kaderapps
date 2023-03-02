@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Kelurahan;
+use App\Models\Kecamatan;
+use App\Models\Jabatan;
 
 class RekaphonorController extends Controller
 {
@@ -14,7 +17,10 @@ class RekaphonorController extends Controller
      */
     public function index()
     {
-        return view('admin.rekaphonor.index');
+        $kelurahans = Kelurahan::latest()->paginate(10);
+        $kecamatans = Kecamatan::latest()->paginate(10);
+        $jabatans = Jabatan::latest()->paginate(10);
+        return view('admin.rekaphonor.index', compact('kelurahans', 'kecamatans', 'jabatans'));
     }
 
     
