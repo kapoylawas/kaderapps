@@ -20,8 +20,9 @@ class SKController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.SK.index');
+
+        $sk = Riwayatjabatan::with('getSk', 'biodata', 'kecamatans', 'kelurahans')->get();
+        return view('admin.SK.index', compact('sk'));
     }
 
 
@@ -34,7 +35,9 @@ class SKController extends Controller
     {
         $biodatas = Biodata::latest()->paginate(10);
         $jabatans = Jabatan::latest()->paginate(10);
-        return view('admin.SK.input', compact('jabatans', 'biodatas'));
+        $kecamatans = Kecamatan::latest()->paginate(10);
+        $kelurahans = Kelurahan::latest()->paginate(10);
+        return view('admin.SK.input', compact('jabatans', 'biodatas', 'kecamatans', 'kelurahans'));
     }
 
     /**
@@ -51,6 +54,7 @@ class SKController extends Controller
             'nosk' => $request->sk,
             'tglskp' => $request->tgl,
             'file' => 'belum bisa upload',
+
         ]);
         // masukan data baru sks kedalam database.
         Riwayatjabatan::create([
@@ -58,8 +62,8 @@ class SKController extends Controller
             'id_jabatan' => $request->jabatan,
             'id_sk' => $sk->id,
             'biodata_id' => $request->id,
-            // 'id_kelurahan' => $request->kelurahan,
-            // 'id_kecamatan' => $request->kecamatan,
+            'id_kelurahan' => $request->kelurahan,
+            'id_kecamatan' => $request->kecamatan,
         ]);
 
         // kembali kehalaman admin/category/index dengan membawa toastr.
@@ -108,6 +112,10 @@ class SKController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
+        $riwayatjabatan = Riwayatjabatan::findOrFail($id);
+        $riwayatjabatan->delete();
+        // kembali kehalaman sebelumnya dengan membawa toastr.
+        return back()->with('toast_success', 'SK Deleted');
     }
 }

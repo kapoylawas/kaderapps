@@ -4,7 +4,8 @@
 {{-- <x-card-form title="EDIT BIODATA" url="{{ route('admin.biodata.index') }}"> --}}
     <div class="col-md-6 ml-5">
         <x-card class="col-md-5" title="Data Kader">
-            <form action="{{ route('admin.biodata.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.biodata.update', $biodata->id) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 {{-- @method('POST') --}}
                 <div class="modal-body">

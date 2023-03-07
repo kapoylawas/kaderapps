@@ -9,5 +9,14 @@ class Sk extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nosk', 'tglskp', 'file'];
+    protected $fillable = ['nosk', 'tglskp', 'file', 'id_kecamatan', 'id_kelurahan'];
+
+    public function kecamatans()
+    {
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan');
+    }
+    public function kelurahans()
+    {
+        return $this->belongsTo(Kelurahan::class, 'id_kelurahan');
+    }
 }

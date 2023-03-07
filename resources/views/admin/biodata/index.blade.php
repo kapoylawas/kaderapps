@@ -65,7 +65,7 @@
                                                 <div class="form-group">
                                                     <div class="col-1">
                                                         <x-button-edit
-                                                            url="{{ route('admin.biodata.edit',$biodata->id) }}">
+                                                            url="{{ route('admin.biodata.edit', $biodata->id) }}">
                                                         </x-button-edit>
                                                     </div>
                                                 </div>

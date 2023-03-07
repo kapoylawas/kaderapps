@@ -55,24 +55,12 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        // $biodata = new Biodata();
-        // $biodata->name = $request->input('name');
-        // $biodata->nik = $request->input('nik');
-        // // $biodata->tempatLahir = $request->input('tampatLahir');
-        // $biodata->tglLahir = $request->input('tglLahir');
-        // $biodata->alamat = $request->input('alamat');
-        // $biodata->id_kota = $request->input('kota');
-        // $biodata->id_kecamatan = $request->input('kecamatan');
-        // $biodata->id_kelurahan = $request->input('kelurahan');
-        // $biodata->nohp = $request->input('nohp');
-        // $biodata->norek = $request->input('norek');
-        // $biodata->id_bank = $request->input('bank');
-        // $biodata->foto = NULL;
-        // $biodata->filektp = null;
-        // $biodata->filebukutabungan = null;
-
-        // $biodata->save();
-
+        // dd($request->all());
+        // if ($request->hasFile('foto')) {
+        //     $request->foto = $request->file('photo')->getClientOriginalName();
+        //     $request->file('photo')->move(public_path('images/photo'), $request->photo);
+        //     $user->photo = $request->photo;
+        // }
         Biodata::create([
             'name' => $request->name,
             'nik' => $request->nik,
@@ -151,8 +139,8 @@ class BiodataController extends Controller
         $kecamatans = Kecamatan::latest()->paginate(10);
         $kelurahans = Kelurahan::latest()->paginate(10);
         $banks = Bank::latest()->paginate(10);
-        $biodata = Biodata::find($id)->with('kecamatans', 'kelurahans')->get();
-        dd($biodata);
+        $biodata = Biodata::findOrFail($id)->with('kecamatans', 'kelurahans')->get();
+        // dd($biodata);
         return view('admin.biodata.edit', compact('biodata', 'kotas', 'kecamatans', 'kelurahans', 'banks'));
     }
 

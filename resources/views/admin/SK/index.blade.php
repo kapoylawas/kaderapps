@@ -41,18 +41,17 @@
                                         <th>Kecamatan</th>
                                         <th>Kelurahan</th>
                                         <th>No SK</th>
-                                        <th>Kelompok Jabatan</th>
                                         <th style="width: 14%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($sk as $i=>$data)
                                     <tr>
-                                        <td>1</td>
-                                        <td>2023</td>
-                                        <td>Wonoayu</td>
-                                        <td>Candinegoro</td>
-                                        <td>081282561</td>
-                                        <td>Kader</td>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $data->tahun }}</td>
+                                        <td>{{ $data->kecamatans->name }}</td>
+                                        <td>{{ $data->kelurahans->name }}</td>
+                                        <td>{{ $data->getSk->nosk }}</td>
                                         <td>
                                             <form action="" method="POST">
                                                 @csrf
@@ -72,13 +71,16 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col">
-                                                            <x-button-delete url="" id=""></x-button-delete>
+                                                            <x-button-delete :id="$data->id"
+                                                                :url="route('admin.sk.destroy', $data->id)">
+                                                            </x-button-delete>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -70,8 +70,9 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jabatan $jabatan)
+    public function edit($id)
     {
+        $jabatan = Jabatan::find($id);
         // passing varibel $jabatan kedalam view.
         return view('admin.jabatan.edit', compact('jabatan'));
     }

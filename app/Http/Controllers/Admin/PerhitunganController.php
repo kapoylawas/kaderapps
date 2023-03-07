@@ -21,7 +21,7 @@ class PerhitunganController extends Controller
         return view('admin.perhitungan.index', compact('kecamatans', 'jabatans'));
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,7 +40,6 @@ class PerhitunganController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

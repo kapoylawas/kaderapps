@@ -12,14 +12,14 @@
                                 <div class="card-body">
                                     <form action="{{ route('admin.sk.store') }}" method="POST">
                                         @csrf
-                                        <div class="mb-4 row">
+                                        <div class="mb-3 row">
                                             <label for="" class="col-sm-2 col-form-label">Tahun</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control form-control-md" id="tahun"
                                                     name="tahun" value="{{ date('Y') }}" readonly>
                                             </div>
                                         </div>
-                                        <div class="mb-2 row">
+                                        <div class="mb-3 row">
                                             <label for="" class="col-sm-2 col-form-label">Kelompok Jabatan</label>
                                             <div class="col-sm-6">
                                                 <select class="form-control form-control-md" name="jabatan"
@@ -31,21 +31,45 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-4 row">
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-sm-2 col-form-label">Kecamatan</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control form-control-md" name="kecamatan"
+                                                    id="kecamatan">
+                                                    <option value="">--Pilih Kecamatan--</option>
+                                                    @foreach ($kecamatans as $kecamatan)
+                                                    <option value="{{ $kecamatan->id }}">{{ $kecamatan->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-sm-2 col-form-label">Kelurahan</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control form-control-md" name="kelurahan"
+                                                    id="kelurahan">
+                                                    <option value="">--Pilih Kelurahan--</option>
+                                                    @foreach ($kelurahans as $kelurahan)
+                                                    <option value="{{ $kelurahan->id }}">{{ $kelurahan->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
                                             <label for="" class="col-sm-2 col-form-label">No SK</label>
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control form-control-md" id="sk"
                                                     name="sk" value="">
                                             </div>
                                         </div>
-                                        <div class="mb-4 row">
+                                        <div class="mb-3 row">
                                             <label for="" class="col-sm-2 col-form-label">Tanggal SK</label>
                                             <div class="col-sm-6">
                                                 <input type="date" class="form-control form-control-md" id="tgl"
                                                     name="tgl" value="">
                                             </div>
                                         </div>
-                                        <div class="mb-2 row">
+                                        <div class="mb-3 row">
                                             <label for="" class="col-sm-2 col-form-label">Upload File SK</label>
                                             <div class="col-sm-6">
                                                 <input type="file" class="form-control form-control-md" id="filesk" `
