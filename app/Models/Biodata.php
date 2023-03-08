@@ -19,4 +19,8 @@ class Biodata extends Model
     {
         return $this->belongsTo(Kelurahan::class, 'id_kelurahan');
     }
+    public function kotas()
+    {
+        return $this->belongsTo(Kota::class, 'id_kota');
+    }
 }

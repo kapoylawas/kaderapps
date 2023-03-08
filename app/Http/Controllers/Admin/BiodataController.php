@@ -122,8 +122,11 @@ class BiodataController extends Controller
      */
     public function show($id)
     {
-        // dd($id);
-
+        // dd($id)->all();
+        // $biodata = Biodata::find($id)->with(['kotas', 'kecamatans', 'kelurahans'])->get();
+        $biodata = Biodata::find($id);
+        // dd($biodata);
+        return view('admin.biodata.show', compact('biodata'));
     }
 
     /**

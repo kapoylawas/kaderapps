@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PpkbdController;
 use App\Http\Controllers\Admin\PayrolController;
 use App\Http\Controllers\Admin\BiodataController;
 use App\Http\Controllers\Admin\JabatanController;
+use App\Http\Controllers\Admin\RiwayatJabatanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KecamatanController;
 use App\Http\Controllers\Admin\KelurahanController;
@@ -44,8 +45,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
 
     // Route::put('/test/{kota:id}', 'App\Http\Controllers\TestController@update')->name('u.kota');
 
-     // admin user route
-     Route::controller(UserController::class)->as('user.')->group(function(){
+    // admin user route
+    Route::controller(UserController::class)->as('user.')->group(function () {
         Route::get('/user/profile', 'profile')->name('profile');
         Route::put('/user/profile/{user}', 'profileUpdate')->name('profile.update');
         Route::put('/user/profile/password/{user}', 'profile')->name('profile.password');
@@ -58,6 +59,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/kecamatan', KecamatanController::class);
     Route::resource('/kota', KotaController::class);
     Route::resource('/biodata', BiodataController::class);
+    Route::resource('/riwayatjabatan', RiwayatJabatanController::class);
 
     Route::resource('/jabatan', JabatanController::class);
     Route::resource('/sk', SKController::class);
@@ -70,8 +72,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
 
 
 // member route
-Route::group(['as' => 'kecamatan.', 'prefix' => 'kecamatan', 'middleware' => ['auth', 'role:kecamatan|author']], function(){
+Route::group(['as' => 'kecamatan.', 'prefix' => 'kecamatan', 'middleware' => ['auth', 'role:kecamatan|author']], function () {
     // member dashboard route
     Route::get('/dashboard', KecamatanDashboardController::class)->name('dashboard');
 });
-
