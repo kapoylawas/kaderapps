@@ -10,7 +10,8 @@
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('admin.sk.store') }}" method="POST">
+                                    <form action="{{ route('admin.sk.store') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3 row">
                                             <label for="" class="col-sm-2 col-form-label">Tahun</label>

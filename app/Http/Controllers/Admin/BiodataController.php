@@ -56,27 +56,37 @@ class BiodataController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        // if ($request->hasFile('foto')) {
-        //     $request->foto = $request->file('photo')->getClientOriginalName();
-        //     $request->file('photo')->move(public_path('images/photo'), $request->photo);
-        //     $user->photo = $request->photo;
-        // }
-        Biodata::create([
-            'name' => $request->name,
-            'nik' => $request->nik,
-            'tempatLahir' => $request->tempatLahir,
-            'tglLahir' => $request->tglLahir,
-            'alamat' => $request->alamat,
-            'id_kota' => $request->kota,
-            'id_kecamatan' => $request->kecamatan,
-            'id_kelurahan' => $request->kelurahan,
-            'nohp' => $request->nohp,
-            'norek' => $request->norek,
-            'id_bank' => $request->bank,
-            'foto' => $request->foto,
-            'filebukutabungan' => $request->tabungan,
-            'filektp' => $request->ktp,
-        ]);
+        //ambil nama foto
+        $foto = $request->foto;
+        $nmfoto = time() . rand(100, 999) . "." . $foto->getClientOriginalExtension();
+        //ambil nama tabungan
+        $tabungan = $request->tabungan;
+        $nmtabungan = time() . rand(100, 999) . "." . $tabungan->getClientOriginalExtension();
+        //ambil nama ktp
+        $ktp = $request->ktp;
+        $nmktp = time() . rand(100, 999) . "." . $ktp->getClientOriginalExtension();
+
+        $simpan = new Biodata;
+        $simpan->name = $request->name;
+        $simpan->nik = $request->nik;
+        $simpan->tempatLahir = $request->tempatLahir;
+        $simpan->tglLahir = $request->tglLahir;
+        $simpan->alamat = $request->alamat;
+        $simpan->id_kota = $request->kota;
+        $simpan->id_kecamatan = $request->kecamatan;
+        $simpan->id_kelurahan = $request->kelurahan;
+        $simpan->nohp = $request->nohp;
+        $simpan->norek = $request->norek;
+        $simpan->id_bank = $request->bank;
+        $simpan->foto = $nmfoto;
+        $simpan->filebukutabungan = $nmtabungan;
+        $simpan->filektp = $nmktp;
+        //pindah file ke directory public
+        $foto->move(public_path() . '/foto', $nmfoto);
+        $tabungan->move(public_path() . '/tabungan', $nmtabungan);
+        $ktp->move(public_path() . '/ktp', $nmktp);
+        //simpan data ke tabel biodatas
+        $simpan->save();
         //redirect ke halaman create biodata dengan membawa toastr
         return redirect(route('admin.biodata.create'))->with('toast_success', 'Data Created');
     }

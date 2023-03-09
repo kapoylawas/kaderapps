@@ -49,18 +49,22 @@ class SKController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $sk = $request->filesk;
+        $nmsk = time() . rand(100, 999) . "." . $sk->getClientOriginalExtension();
         // masukan data baru sks kedalam database.
-        $sk = Sk::create([
-            'nosk' => $request->sk,
-            'tglskp' => $request->tgl,
-            'file' => 'belum bisa upload',
+        $simpansk = new Sk;
+        $simpansk->nosk = $request->sk;
+        $simpansk->tglskp = $request->tgl;
+        $simpansk->file = $nmsk;
 
-        ]);
+        $sk->move(public_path() . '/sk', $nmsk);
+
+        $simpansk->save();
         // masukan data baru sks kedalam database.
         Riwayatjabatan::create([
             'tahun' => $request->tahun,
             'id_jabatan' => $request->jabatan,
-            'id_sk' => $sk->id,
+            'id_sk' => $simpansk->id,
             'biodata_id' => $request->id,
             'id_kelurahan' => $request->kelurahan,
             'id_kecamatan' => $request->kecamatan,
