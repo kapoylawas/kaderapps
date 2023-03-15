@@ -13,8 +13,8 @@
     <label for="" class="col-sm-2 col-form-label">{{ $title }}</label>
     <div class="col-sm-10">
         <input type="{{ $type }}" name="{{ $name }}"
-            class="form-control form-control-md @error('$name') is-invalid @enderror" id=""
-            placeholder="{{ $placeholder }}" value="{{ $value }}">
+            class="form-control form-control-md @error($name) is-invalid @enderror" id=""
+            placeholder="{{ $placeholder }}" value="{{ $value }}" required>
         @error($name)
         <div class="invalid-feedback">
             {{ $message }}

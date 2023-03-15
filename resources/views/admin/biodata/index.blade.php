@@ -81,6 +81,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{-- {{ $biodata->links() }} --}}
                         </div>
                     </div>
                 </div>

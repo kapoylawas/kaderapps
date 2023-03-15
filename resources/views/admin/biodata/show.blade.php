@@ -17,6 +17,10 @@
     <x-card class="col-md-5" title="Data Kader">
         <div class="modal-body">
             <div class="mb-3 row">
+                <img src="{{url('/foto/'.$biodata->foto)}}" width="120" height="120" class="rounded-circle" alt=" Foto
+                    Kader">
+            </div>
+            <div class="mb-3 row">
                 <label for="" class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control form-control-md" id="" name="name"

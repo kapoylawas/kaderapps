@@ -1,4 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <style>
+        .main-sidebar {
+            background-color: #237cf0 !important
+        }
+    </style>
     <a href="/" class="brand-link">
         <div class="text-center">
             <svg width="81" height="77" viewBox="0 0 81 77" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +112,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-header">-----------------------------------------------</li>
+                        <li class="nav-header"></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -225,9 +230,9 @@
                             Sign Out
                         </p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-                </form>
-                </a>
+                            @csrf
+                        </form>
+                    </a>
                 </li> --}}
                 {{-- <li class="nav-item">
                     <a href="{{ route('admin.user.profile') }}" class="nav-link {{ active('admin.user.profile') }}">
